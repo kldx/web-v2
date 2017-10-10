@@ -8,8 +8,10 @@ class CreateArticles < ActiveRecord::Migration[5.1]
       t.string :default_picture
       t.integer :status
       t.boolean :featured
+      t.string :slug
 
       t.timestamps
     end
+    add_index :articles, :slug, unique: true
   end
 end
