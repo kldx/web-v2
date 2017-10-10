@@ -5,17 +5,15 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Title</th>
+      <th style="width:75%">Title</th>
       <th>By</th>
-      <th>Action</th>
+      <th style="width:15%">Action</th>
     </tr>
   </thead>
   <tbody class="sortable">
     <% sortable_fetch @banners do |banner,id_tag| %>
     <tr id="<%= id_tag %>">
-      <td>
-        <%= banner.title %>
-      </td>
+      <td><%= banner.title %></td>
       <td><%= banner.user.callsign.upcase %></td>
       <td>
         <%= link_to edit_admin_banner_path(banner), class: "btn btn-primary btn-sm" do %>

@@ -1,9 +1,9 @@
 <% index = article_counter + 0 %>
 <tr>
-  <td><%= index+1 %></td>
+  <td style="width:5%"><%= index+1 %></td>
   <td><%= article.title %></td>
-  <td><%= article.user.callsign.upcase %></td>
-  <td>
+  <td style="width:10%"><%= article.user.callsign.upcase %></td>
+  <td style="width:15%">
     <div class="btn-group btn-group-sm">
       <%= link_to edit_admin_article_path(article), class: "btn btn-primary" do %>
         <i class="fa fa-pencil" aria-hidden="true"></i>
