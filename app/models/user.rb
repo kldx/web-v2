@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :banners
+  has_many :activities
 
   validates :callsign,
     presence: true,
