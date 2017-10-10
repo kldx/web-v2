@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    confirmations: 'users/confirmations',
+    passwords: 'users/passwords',
+    unlocks: 'users/unlocks'
+  }
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    get '/login' => 'users/sessions#new'
+    get '/register' => 'users/registrations#new'
+    get '/settings' => 'users/registrations#edit'
+  end
+
+  root 'pages#index'
 end
