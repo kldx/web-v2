@@ -23,9 +23,9 @@
 
 <div class="form-group">
   <%= f.label :default_picture %>
-  <% if @product.try(:default_picture?) %>
+  <% if @article.try(:default_picture?) %>
   <p>
-    <%= image_tag(@product.default_picture_url(:thumbnail), class: "img-responsive") %>
+    <%= image_tag(@article.default_picture_url(:thumbnail), class: "img-responsive") %>
   </p>
   <% end %>
   <%= f.file_field :default_picture, :class => "form-control-file" %>
