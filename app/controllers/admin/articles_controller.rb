@@ -1,9 +1,9 @@
 class Admin::ArticlesController < AdminController
-  before_action :set_user, only: [:index, :new, :create, :edit, :update, :destroy]
-  before_action :find_article, only: [:edit, :update, :destroy, :show]
+  before_action :set_user, only: [:new, :create]
+  before_action :find_article, only: [:edit, :update, :destroy]
 
   def index
-    @articles = @user.articles
+    @articles = Article.all
   end
 
   def new
@@ -54,7 +54,7 @@ class Admin::ArticlesController < AdminController
     end
 
     def find_article
-      @article = @user.articles.friendly.find params[:id]
+      @article = Article.friendly.find params[:id]
       rescue ActiveRecord::RecordNotFound
         redirect_to admin_articles_url, :notice => 'Record not found'
     end
