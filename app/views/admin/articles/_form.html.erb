@@ -1,0 +1,55 @@
+<% if @article.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><%= pluralize(@article.errors.count, "error") %> prohibited this user from being saved:</strong>
+  <ul>
+    <% @article.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :title, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :category_id, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.collection_select :category_id, Category.order(:name), :id, :name, {include_blank: "Please choose"}, :class => "form-control", required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :content, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <%= f.text_area :content, class: "form-control", rows: 5, required: true %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= f.label :default_picture, class: "col-sm-2 control-label" %>
+  <div class="col-sm-10">
+    <% if @product.try(:default_picture?) %>
+    <p>
+      <%= image_tag(@product.default_picture_url(:thumbnail), class: "img-responsive") %>
+    </p>
+    <% end %>
+    <%= f.file_field :default_picture, :class => "form-control" %>
+    <%#= f.hidden_field :default_picture_cache %>
+    <span class="help-block">
+      For best result, please upload only 200px * 200px
+    </span>
+  </div>
+</div>
+
+<div class="actions">
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to "Cancel", admin_articles_path, class: "btn btn-default" %>
+  </div>
+</div>

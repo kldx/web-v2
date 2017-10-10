@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20171010094749) do
     t.string "title"
     t.text "content"
     t.string "default_picture"
-    t.integer "status"
-    t.boolean "featured"
+    t.integer "status", default: 0
+    t.boolean "featured", default: false
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

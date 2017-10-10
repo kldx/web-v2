@@ -1,0 +1,16 @@
+<p>
+  <%= link_to "New Article", new_admin_article_path %>
+</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>By</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @articles %>
+  </tbody>
+</table>

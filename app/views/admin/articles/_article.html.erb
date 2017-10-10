@@ -1,0 +1,16 @@
+<% index = article_counter + 0 %>
+<tr>
+  <td><%= index+1 %></td>
+  <td><%= article.title %></td>
+  <td><%= article.user.callsign.upcase %></td>
+  <td>
+    <div class="btn-group btn-group-sm">
+      <%= link_to edit_admin_article_path(article), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_article_path(article), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>
