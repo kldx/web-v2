@@ -1,0 +1,15 @@
+<p>
+  <%= link_to "New Category", new_admin_category_path, id: "new_cat", remote: true %>
+</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @categories %>
+  </tbody>
+</table>

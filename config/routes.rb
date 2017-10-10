@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin, path: '/admin' do
     get "/" => "dashboard#index", as: 'admin'
+    resources :categories, except: [:edit, :update]
   end
 
   devise_for :users, controllers: {
