@@ -18,6 +18,7 @@
 <div class="form-group">
   <%= f.label :category_id %>
   <%= f.collection_select :category_id, Category.order(:name), :id, :name, {include_blank: "Please choose"}, :class => "form-control", required: true %>
+  <small id="emailHelp" class="form-text text-muted">Missing category? Add new <%= link_to "here", admin_categories_path %></small>
 </div>
 
 <div class="form-group">
