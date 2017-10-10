@@ -19,3 +19,4 @@
 //= require jquery-ui/widgets/sortable
 //= require rails_sortable
 //= require admin/style
+//= require holder
