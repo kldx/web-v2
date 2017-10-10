@@ -13,25 +13,30 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Projects</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Downloads</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Crew</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Activities</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Shop</a>
+        </li>
+        <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.callsign.upcase %></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <%= link_to "Manage Category", admin_categories_path, class: "dropdown-item" %>
+            <%= link_to "Manage Article", admin_articles_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to destroy_user_session_path, method: "delete", class: "dropdown-item text-danger" do %>
+              <i class="fa fa-sign-out"></i> Logout
+            <% end %>
           </div>
         </li>
+        <% end %>
       </ul>
     </div>
   </nav>

@@ -36,7 +36,7 @@
     <% @articles.each do |article| %>
       <div class="article d-flex align-content-start flex-wrap">
         <h2><%= article.title %></h2>
-        <p><small class="text-muted">Submitted by <%= article.user.callsign.upcase %> on <%= article.created_at.strftime("%d %B %Y") %></small></p>
+        <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= article.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= article.created_at.strftime("%d %B %Y") %> under <i class="fa fa-globe"></i> <%= article.category.name %></small></p>
         <p><%= image_tag(article.default_picture_url(:headline), class: "img-responsive") %></p>
         <p><%= simple_format(article.content.split[0..42].join(" ")) %></p>
         <p><%= link_to "read more", "", class: "btn btn-primary btn-sm" %></p>
