@@ -1,0 +1,11 @@
+<div class="card text-white">
+  <%= image_tag @article.default_picture_url(:header), class: "card-img" %>
+  <div class="card-img-overlay">
+    <h2 class="card-title"><%= @article.title %></h2>
+    <p class="card-text">Submitted by <i class="fa fa-user-circle"></i> <%= @article.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= @article.created_at.strftime("%d %B %Y") %> under <i class="fa fa-globe"></i> <%= @article.category.name %></p>
+  </div>
+</div>
+
+<p><%= simple_format @article.content %></p>
+
+<%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>

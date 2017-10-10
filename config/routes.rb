@@ -20,4 +20,8 @@ Rails.application.routes.draw do
   end
 
   root 'pages#index'
+  # article show page
+  get 'a/:id' => 'pages#show', as: 'article'
+  #category
+  get 'c/:sort' => 'pages#category', as: 'category'
 end
