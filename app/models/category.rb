@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders, :history]
+  acts_as_paranoid
 
   has_many :articles
 

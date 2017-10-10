@@ -38,9 +38,7 @@ class Admin::ArticlesController < AdminController
 
   def destroy
     if @article.destroy
-      respond_to do |format|
-        format.js { redirect_to admin_articles_path, notice: "Article has been destroyed" }
-      end
+      redirect_to admin_articles_path, notice: 'Article has been destroyed!'
     else
       render 'index'
     end

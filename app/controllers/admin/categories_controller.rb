@@ -16,9 +16,11 @@ class Admin::CategoriesController < AdminController
   end
 
   def destroy
-    @category = Category.destroy params[:id]
-    respond_to do |format|
-      format.js { redirect_to admin_categories_path, notice: "Category has been destroyed" }
+    @category = Category.find params[:id]
+    if @category.really_destroy!
+      redirect_to admin_categories_path, notice: 'Category has been destroyed!'
+    else
+      render 'index'
     end
   end
 

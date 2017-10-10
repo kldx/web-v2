@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders, :history]
   mount_uploader :default_picture, DefaultPictureUploader
+  acts_as_paranoid
 
   belongs_to :user
   belongs_to :category
