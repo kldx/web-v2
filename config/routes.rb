@@ -28,4 +28,6 @@ Rails.application.routes.draw do
   get 'c/:sort' => 'pages#category', as: 'category'
   get 'activities' => 'pages#activities', as: 'activities'
   get 'crew' => 'pages#crew', as: 'crew'
+  get 'shop' => 'pages#shop', as: 'shop'
+  get 'about' => 'pages#about', as: 'about'
 end

@@ -21,9 +21,11 @@ class PagesController < ApplicationController
     @activities_next_month = Activity.next_month
   end
 
-  def crew
-    #code
-  end
+  def crew() end
+
+  def shop() end
+
+  def about() end
 
   private
 
