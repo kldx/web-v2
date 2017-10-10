@@ -60,6 +60,6 @@ class Admin::ArticlesController < AdminController
     end
 
     def article_params
-      params.require(:article).permit(:title, :content, :default_picture, :status, :quantity, :featured, :category_id, :user_id)
+      params.require(:article).permit(:title, :content, :default_picture, :default_picture_cache, :status, :quantity, :featured, :category_id, :user_id)
     end
 end
