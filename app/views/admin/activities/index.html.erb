@@ -1,0 +1,18 @@
+<p>
+  <%= link_to "New Activity", new_admin_activity_path %>
+</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Start Date/Time</th>
+      <th>End Date/Time</th>
+      <th>By</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @activities %>
+  </tbody>
+</table>

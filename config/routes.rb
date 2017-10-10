@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:edit, :update]
     resources :articles, except: :show
     resources :banners, except: :destroy
+    resources :activities
   end
 
   devise_for :users, controllers: {

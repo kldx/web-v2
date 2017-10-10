@@ -1,0 +1,21 @@
+<% index = activity_counter + 0 %>
+<tr>
+  <td style="width:5%"><%= index+1 %></td>
+  <td><%= activity.title %></td>
+  <td><%= activity.start_time.strftime("%d/%m/%Y at %I:%M %p") %></td>
+  <td><%= activity.end_time.strftime("%d/%m/%Y at %I:%M %p") %></td>
+  <td><%= activity.user.callsign.upcase %></td>
+  <td style="width:15%">
+    <div class="btn-group btn-group-sm">
+      <%= link_to edit_admin_activity_path(activity), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_activity_path(activity), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
+    <%= link_to admin_activity_path(activity), class: "btn btn-secondary btn-sm" do %>
+      <i class="fa fa-share" aria-hidden="true"></i> view
+    <% end %>
+  </td>
+</tr>

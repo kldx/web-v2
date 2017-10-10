@@ -26,8 +26,8 @@
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+          <p>When Everything Else Fails. Amateur Radio often times is our last line of defense...When you need amateur radio, you really need them.</p>
+          <footer class="blockquote-footer">The Hon. W. Craig Fugate from <cite title="from">US Department of Homeland Security, FEMA</cite></footer>
         </blockquote>
       </div>
     </div>
@@ -44,12 +44,32 @@
     <% end %>
   </div>
   <div class="col">
-    <ul class="list-group">
-      <% Category.all.each do |c| %>
-        <%= link_to category_path(sort: c.slug), data: { turbolinks: false }, class: "list-group-item list-group-item-action" do %>
-        <%= c.name %> <span class="badge badge-secondary float-right" style="margin-top:3px;"><%= c.articles.count %></span>
+    <div class="calendar_activity">
+      <p class="lead">This <%= Time.now.strftime("%B") %> Activities</p>
+      <ul class="list-group">
+        <% @activities_this_month.each do |activity| %>
+        <li class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= activity.title %></h5>
+            <small><%= check_status(activity) %></small>
+          </div>
+          <small class="text-secondary"><%= activity.start_time.strftime("%d %b %Y %I:%M %p") %> - <%= activity.end_time.strftime("%d %b %Y %I:%M %p") %></small>
+          <p class="mb-1"><%= simple_format activity.description %></p>
+        </li>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+      <small class="form-text text-muted">See our full schedule of activities <%= link_to "here", "" %></small>
+    </div>
+    <hr>
+    <div class="side_category">
+      <p class="lead">Categories</p>
+      <ul class="list-group">
+        <% Category.all.each do |c| %>
+          <%= link_to category_path(sort: c.slug), data: { turbolinks: false }, class: "list-group-item list-group-item-action" do %>
+          <%= c.name %> <span class="badge badge-secondary float-right" style="margin-top:3px;"><%= c.articles.count %></span>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
