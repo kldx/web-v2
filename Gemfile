@@ -40,6 +40,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'fog'
 gem 'fastimage'
+gem 'jquery-ui-rails'
+gem 'rails_sortable'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

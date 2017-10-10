@@ -1,16 +1,31 @@
 <p>
   <%= link_to "New Banner", new_admin_banner_path %>
 </p>
+<small class="form-text text-muted">TOP 3 row banners will be set as a main banner in homepage. Drag n Drop the row to set the TOP 3 banners</small>
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th>
       <th>Title</th>
       <th>By</th>
       <th>Action</th>
     </tr>
   </thead>
-  <tbody>
-    <%= render @banners %>
+  <tbody class="sortable">
+    <% sortable_fetch @banners do |banner,id_tag| %>
+    <tr id="<%= id_tag %>">
+      <td>
+        <%= banner.title %>
+      </td>
+      <td><%= banner.user.callsign.upcase %></td>
+      <td>
+        <%= link_to edit_admin_banner_path(banner), class: "btn btn-primary btn-sm" do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+        <% end %>
+        <%= link_to admin_banner_path(banner), class: "btn btn-secondary btn-sm" do %>
+          <i class="fa fa-share" aria-hidden="true"></i> view
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
   </tbody>
 </table>

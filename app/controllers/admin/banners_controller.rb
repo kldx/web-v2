@@ -3,7 +3,8 @@ class Admin::BannersController < AdminController
   before_action :find_banner, only: [:show, :edit, :update]
 
   def index
-    @banners = Banner.all
+    @banners = Banner.order(:sort).all
+
   end
 
   def new

@@ -9,6 +9,9 @@
     <% @banners.each_with_index do |banner,index| %>
       <div class="carousel-item <%='active' if index == 0 %>">
         <%= image_tag banner.default_picture_url(:header), class: "d-block w-100" %>
+        <div class="carousel-caption d-none d-md-block">
+          <h3><%= banner.title %></h3>
+        </div>
       </div>
     <% end %>
   </div>

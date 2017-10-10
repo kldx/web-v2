@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def index
     @articles = Article.approved
-    @banners = Banner.limit(3)
+    @banners = Banner.where sort: 0..2
   end
 
   def show
