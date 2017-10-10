@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def check_status(obj)
+  def check_status obj
     case obj.status
     when 1
       "<span class='badge badge-primary'>Normal</span>".html_safe

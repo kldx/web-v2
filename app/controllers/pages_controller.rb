@@ -17,10 +17,12 @@ class PagesController < ApplicationController
   end
 
   def activities
-    @activities_today = Activity.today
-    # @activities_this_week = Activity.this_week
     @activities_this_month = Activity.this_month
-    # @activities_next_month = Activity.next_month
+    @activities_next_month = Activity.next_month
+  end
+
+  def crew
+    #code
   end
 
   private

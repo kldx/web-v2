@@ -51,14 +51,14 @@
         <li class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1"><%= activity.title %></h5>
-            <small><%= check_status(activity) %></small>
+            <small><%= check_status activity %></small>
           </div>
           <small class="text-secondary"><%= activity.start_time.strftime("%d %b %Y %I:%M %p") %> - <%= activity.end_time.strftime("%d %b %Y %I:%M %p") %></small>
           <p class="mb-1"><%= simple_format activity.description %></p>
         </li>
         <% end %>
       </ul>
-      <small class="form-text text-muted">See our full schedule of activities <%= link_to "here", "" %></small>
+      <small class="form-text text-muted">See our full schedule of activities <%= link_to "here", activities_path %></small>
     </div>
     <hr>
     <div class="side_category">
