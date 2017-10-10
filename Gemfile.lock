@@ -56,7 +56,15 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    config (1.4.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.1.1)
     crass (1.0.2)
+    deep_merge (1.1.1)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -174,6 +182,8 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.beta)
   byebug
   coffee-rails (~> 4.2)
+  config
+  dotenv-rails
   font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
