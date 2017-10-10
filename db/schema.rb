@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010094749) do
+ActiveRecord::Schema.define(version: 20171010165324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,19 @@ ActiveRecord::Schema.define(version: 20171010094749) do
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["slug"], name: "index_articles_on_slug", unique: true
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "banners", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "title"
+    t.string "default_picture"
+    t.integer "status", default: 0
+    t.integer "sort"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_banners_on_slug", unique: true
+    t.index ["user_id"], name: "index_banners_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -73,4 +86,5 @@ ActiveRecord::Schema.define(version: 20171010094749) do
 
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
+  add_foreign_key "banners", "users"
 end

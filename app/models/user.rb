@@ -9,6 +9,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :articles
+  has_many :banners
 
   validates :callsign,
     presence: true,

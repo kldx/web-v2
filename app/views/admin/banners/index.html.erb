@@ -1,0 +1,16 @@
+<p>
+  <%= link_to "New Banner", new_admin_banner_path %>
+</p>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>By</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @banners %>
+  </tbody>
+</table>

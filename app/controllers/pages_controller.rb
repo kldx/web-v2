@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def index
     @articles = Article.approved
+    @banners = Banner.limit(3)
   end
 
   def show
