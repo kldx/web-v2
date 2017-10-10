@@ -8,7 +8,9 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav text-md-center nav-justified w-100">
         <li class="nav-item active">
-          <a class="nav-link" href="#"><i class="fa fa-home"></i> <span class="sr-only">(current)</span></a>
+          <%= link_to root_path, class: "nav-link" do %>
+            <i class="fa fa-home"></i>
+          <% end %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Projects</a>
