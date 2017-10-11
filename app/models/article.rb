@@ -16,6 +16,8 @@ class Article < ApplicationRecord
   scope :rejected, -> { where ('status = 2')}
   scope :featured, -> { where ('featured = TRUE')}
 
+  self.per_page = 5
+
   def should_generate_new_friendly_id?
     title_changed?
   end

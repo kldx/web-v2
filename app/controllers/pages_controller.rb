@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :list_activity, only: [:index, :show, :category]
   def index
-    @articles = Article.approved
+    @articles = Article.approved.page params[:page]
     @banners = Banner.where sort: 0..2
   end
 
@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 
   def category
     @category = Category.find_by_slug params[:sort]
-    @articles = Article.by_category(@category.id).approved
+    @articles = Article.by_category(@category.id).approved.page(params[:page])
   end
 
   def activities

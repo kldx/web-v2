@@ -31,4 +31,7 @@ Rails.application.routes.draw do
   get 'crew' => 'pages#crew', as: 'crew'
   get 'shop' => 'pages#shop', as: 'shop'
   get 'about' => 'pages#about', as: 'about'
+
+  get 'page/:page' => 'pages#index'
+  get 'c/:sort/page/:page' => 'pages#category'
 end

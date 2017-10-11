@@ -44,6 +44,7 @@ gem 'jquery-ui-rails'
 gem 'rails_sortable'
 gem 'paranoia', '~> 2.2'
 gem 'ckeditor'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
