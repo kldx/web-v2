@@ -43,6 +43,7 @@ gem 'fastimage'
 gem 'jquery-ui-rails'
 gem 'rails_sortable'
 gem 'paranoia', '~> 2.2'
+gem 'ckeditor'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

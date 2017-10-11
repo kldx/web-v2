@@ -17,6 +17,7 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery-ui/widgets/sortable
+//= require ckeditor/init
 //= require rails_sortable
 //= require admin/style
 //= require holder

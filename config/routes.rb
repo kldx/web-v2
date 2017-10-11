@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin, path: '/admin' do
     get "/" => "dashboard#index", as: 'admin'
     resources :categories, except: [:edit, :update]

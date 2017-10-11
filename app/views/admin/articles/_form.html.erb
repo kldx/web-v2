@@ -25,7 +25,7 @@
   <%= f.label :default_picture %>
   <% if @article.try(:default_picture?) %>
   <p>
-    <%= image_tag(@article.default_picture_url(:thumbnail), class: "img-responsive") %>
+    <%= image_tag(@article.default_picture_url(:headline), class: "img-responsive") %>
   </p>
   <% end %>
   <%= f.file_field :default_picture, :class => "form-control-file" %>
@@ -35,7 +35,7 @@
 
 <div class="form-group">
   <%= f.label :content %>
-  <%= f.text_area :content, class: "form-control", rows: 5, required: true %>
+  <%= f.cktext_area :content, class: "form-control", rows: 6, required: true %>
 </div>
 
 <div class="actions">
