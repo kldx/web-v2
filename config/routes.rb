@@ -1,6 +1,8 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin, path: '/admin' do
+    mount Sidekiq::Web, at: '/sidekiq'
     get "/" => "dashboard#index", as: 'admin'
     resources :categories, except: [:edit, :update]
     resources :articles, except: :show

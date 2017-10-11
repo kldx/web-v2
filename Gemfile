@@ -45,6 +45,11 @@ gem 'rails_sortable'
 gem 'paranoia', '~> 2.2'
 gem 'ckeditor'
 gem 'will_paginate', '~> 3.1.0'
+gem 'carrierwave_backgrounder', :git => 'https://github.com/lardawge/carrierwave_backgrounder.git'
+gem 'sidekiq'
+gem 'sinatra'
+gem 'redis-namespace'
+gem 'capistrano-sidekiq'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

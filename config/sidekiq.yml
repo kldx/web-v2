@@ -1,0 +1,7 @@
+:queues:
+  - [carrierwave, 6]
+  - [default, 1]
+# development:
+#   :concurrency: 25
+production:
+  :concurrency: 25

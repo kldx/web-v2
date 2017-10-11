@@ -2,6 +2,7 @@ class Banner < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders, :history]
   mount_uploader :default_picture, DefaultPictureUploader
+  process_in_background :default_picture
   include RailsSortable::Model
   set_sortable :sort
 

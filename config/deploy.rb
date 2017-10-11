@@ -32,6 +32,10 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 # Default value for local_user is ENV['USER']
 # set :local_user, -> { `git config user.name`.chomp }
 
+# sidekiq
+set :bundle_bins, fetch(:bundle_bins, []).push(:sidekiq)
+set :pty,  false
+
 # Default value for keep_releases is 5
 set :keep_releases, 1
 
