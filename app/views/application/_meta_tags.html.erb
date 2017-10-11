@@ -1,0 +1,21 @@
+<% og_description ||= "" %>
+<% og_title ||= "" %>
+<% og_type ||= "" %>
+<% og_url ||= "" %>
+<% og_image ||= "" %>
+<% article_author ||= "" %>
+
+<% image_url ||= image_path('logo.png') %>
+<meta property="og:type" content="<%= !og_type.blank? ? og_type : 'website'%>" />
+<meta property="og:title" content="<%= !og_title.blank? ? og_title : title %>"/>
+<meta property="og:url" content="<%= !og_url.blank? ? og_url : request.url %>"/>
+<meta property="og:image" content="<%= !og_image.blank? ? og_image : image_url('logo.png') %>"/>
+<meta property="og:description" content="<%= !og_description.blank? ? og_description : description %>" />
+<meta property="og:site_name" content="Kuala Lumpur DX Team"/>
+<meta property="article:author" content="<%= !article_author.blank? ? article_author : 'https://www.facebook.com/kldxteam/' %>" />
+<meta property="article:publisher" content="https://www.facebook.com/kldxteam/" />
+<meta name="title" content="<%= title %>"/>
+<meta name="description" content="<%= description %>" />
+<link rel="canonical" href="<%= canonical %>" />
+
+<%= favicon_link_tag "favicon.png" %>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Admin Dashboard</title>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard | KLDX</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+    <%= yield :meta_tags %>
   </head>
 
   <body>
