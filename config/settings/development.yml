@@ -2,4 +2,3 @@ site_url: 'localhost:3000'
 s3:
   bucket: web2-dev
   region: ap-southeast-1
-image_host: 'http://localhost:9000/minio'

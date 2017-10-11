@@ -2,4 +2,3 @@ site_url: 'kldxteam.com'
 s3:
   bucket: web2-dev
   region: ap-southeast-1
-image_host: https://web2-dev.s3.amazonaws.com
