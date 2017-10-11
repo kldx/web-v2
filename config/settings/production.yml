@@ -1,3 +1,5 @@
 site_url: 'kldxteam.com'
 s3:
   bucket: web2-dev
+  region: ap-southeast-1
+image_host: https://metros-production.s3.amazonaws.com
