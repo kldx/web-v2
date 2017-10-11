@@ -1,10 +1,10 @@
 GIT
-  remote: https://github.com/lardawge/carrierwave_backgrounder.git
-  revision: 460394b0e2c0cf0c192be9c1a60bcf9dfb1f9e4d
+  remote: https://github.com/nowakov/carrierwave_backgrounder.git
+  revision: 61e41b296b96a9949d0c85281f9d9a6eee1411d9
+  branch: rails-5-1
   specs:
     carrierwave_backgrounder (0.4.2)
       carrierwave (>= 0.5, < 2.0)
-      mime-types (~> 2.99)
 
 GEM
   remote: https://rubygems.org/
@@ -130,7 +130,7 @@ GEM
       dry-container (~> 0.2, >= 0.2.6)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
-    dry-types (0.12.0)
+    dry-types (0.12.1)
       concurrent-ruby (~> 1.0)
       dry-configurable (~> 0.1)
       dry-container (~> 0.3)
@@ -339,7 +339,9 @@ GEM
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
     method_source (0.9.0)
-    mime-types (2.99.3)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
     mini_magick (4.8.0)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
