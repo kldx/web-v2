@@ -1,3 +1,7 @@
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags' %>
+<% end %>
+
 <h2><%= Time.now.strftime("%B %Y") %></h2>
 
 <% @activities_this_month.each_slice(3).with_index do |group,index| %>
