@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :activities
     namespace :store, path: '/store' do
       get "/dashboard" => "dashboard#index", as: 'dashboard'
-      resources :items
+      resources :items, except: :show
     end
   end
 
