@@ -1,0 +1,20 @@
+<% index = item_counter + 0 %>
+<tr>
+  <td style="width:5%"><%= index+1 %></td>
+  <td><%= item.name %></td>
+  <td style="width:15%"><%= number_to_currency(item.default_price, unit: "RM") %></td>
+  <td style="width:10%"><span class="badge badge-secondary"><%= item.quantity %></span> <%= check_stock item %></td>
+  <td style="width:10%">
+    <div class="btn-group btn-group-sm">
+      <%= link_to edit_admin_store_item_path(item), class: "btn btn-primary" do %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_store_item_path(item), class: "btn btn-info" do %>
+        <i class="fa fa-window-restore" aria-hidden="true"></i>
+      <% end %>
+      <%= link_to admin_store_item_path(item), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-danger" do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  </td>
+</tr>

@@ -23,7 +23,9 @@ class PagesController < ApplicationController
 
   def crew() end
 
-  def shop() end
+  def shop
+    @items = Item.all
+  end
 
   def about() end
 

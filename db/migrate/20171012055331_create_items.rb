@@ -9,6 +9,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.boolean :in_stock
       t.decimal :default_price, precision: 8, scale: 2
       t.decimal :sale_price, precision: 8, scale: 2
+      t.boolean :featured, default: false
       t.string :slug
 
       t.timestamps

@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20171012055331) do
     t.boolean "in_stock"
     t.decimal "default_price", precision: 8, scale: 2
     t.decimal "sale_price", precision: 8, scale: 2
+    t.boolean "featured", default: false
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

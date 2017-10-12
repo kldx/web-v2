@@ -1,0 +1,52 @@
+<% if @item.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><%= pluralize(@item.errors.count, "error") %> prohibited this user from being saved:</strong>
+  <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control", required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.cktext_area :description, class: "form-control", rows: 5, required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label :default_picture %>
+  <% if @item.try(:default_picture?) %>
+  <p>
+    <%= image_tag(@item.default_picture_url(:thumbnail), class: "img-responsive") %>
+  </p>
+  <% end %>
+  <%= f.file_field :default_picture, :class => "form-control-file", required: true %>
+  <%= f.hidden_field :default_picture_cache %>
+  <small class="form-text text-muted">For best result, please upload only 246px * 180px</small>
+</div>
+
+<div class="form-group">
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity, class: "form-control", required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label :default_price %>
+  <%= f.text_field :default_price, class: "form-control", required: true %>
+</div>
+
+<div class="form-group">
+  <%= f.label :sale_price %>
+  <%= f.text_field :sale_price, class: "form-control" %>
+  <small class="form-text text-muted">Leave blank if you don't wish to give a discount</small>
+</div>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to "Cancel", admin_store_items_path, class: "btn btn-default" %>

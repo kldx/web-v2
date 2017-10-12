@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     end
     resources :banners, except: :destroy
     resources :activities
+    namespace :store, path: '/store' do
+      get "/dashboard" => "dashboard#index", as: 'dashboard'
+      resources :items
+    end
   end
 
   devise_for :users, controllers: {
