@@ -3,6 +3,10 @@
   <td style="width:5%"><%= index+1 %></td>
   <td><%= article.title %></td>
   <td style="width:10%"><%= article.user.callsign.upcase %></td>
+  <td id="article-state_<%= article.id %>" style="width:10%"><%= check_article_status article %></td>
+  <td id="article-status_<%= article.id %>" style="width:10%">
+    <%= render partial: "article_status", locals: {:article => article} %>
+  </td>
   <td style="width:15%">
     <div class="btn-group btn-group-sm">
       <%= link_to edit_admin_article_path(article), class: "btn btn-primary" do %>

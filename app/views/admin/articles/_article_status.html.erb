@@ -1,0 +1,5 @@
+<% if article.published? %>
+  <%= link_to "unpublish", unpublish_admin_article_path(article), method: :patch, remote: true, class: "btn btn-warning btn-sm" %>
+<% else %>
+  <%= link_to "publish", published_admin_article_path(article), method: :patch, remote: true, class: "btn btn-primary btn-sm" %>
+<% end %>

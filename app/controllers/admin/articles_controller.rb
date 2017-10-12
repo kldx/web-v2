@@ -1,6 +1,6 @@
 class Admin::ArticlesController < AdminController
   before_action :set_user, only: [:new, :create]
-  before_action :find_article, only: [:edit, :update, :destroy]
+  before_action :find_article, only: [:edit, :update, :destroy, :published, :unpublish]
 
   def index
     @articles = Article.all
@@ -42,6 +42,14 @@ class Admin::ArticlesController < AdminController
     else
       render 'index'
     end
+  end
+
+  def published
+    @article.update_attributes(status: :approved)
+  end
+
+  def unpublish
+    @article.update_attributes(status: :rejected)
   end
 
   private

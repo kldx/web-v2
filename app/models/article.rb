@@ -22,4 +22,8 @@ class Article < ApplicationRecord
   def should_generate_new_friendly_id?
     title_changed?
   end
+
+  def published?
+    status == "approved"
+  end
 end

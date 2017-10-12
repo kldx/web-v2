@@ -9,4 +9,15 @@ module ApplicationHelper
       "<span class='badge badge-warning'>Unavailable</span>".html_safe
     end
   end
+
+  def check_article_status obj
+    case obj.status
+    when "pending"
+      "<span class='badge badge-warning'>Pending</span>".html_safe
+    when "approved"
+      "<span class='badge badge-primary'>Approved</span>".html_safe
+    when "rejected"
+      "<span class='badge badge-danger'>Rejected</span>".html_safe
+    end
+  end
 end

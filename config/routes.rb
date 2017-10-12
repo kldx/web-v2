@@ -5,7 +5,12 @@ Rails.application.routes.draw do
     mount Sidekiq::Web, at: '/sidekiq'
     get "/" => "dashboard#index", as: 'admin'
     resources :categories, except: [:edit, :update]
-    resources :articles, except: :show
+    resources :articles, except: :show do
+      member do
+        patch :published
+        patch :unpublish
+      end
+    end
     resources :banners, except: :destroy
     resources :activities
   end

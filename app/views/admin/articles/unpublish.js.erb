@@ -1,0 +1,3 @@
+$("#article-status_<%= @article.id %>").html("<%= j render partial: 'article_status', locals: {:article => @article} %>");
+$("#article-state_<%= @article.id %>").html("<span class='badge badge-danger'>Rejected</span>");
+// swal("Oh no!", "You have mark this article as inactive!", "error")
