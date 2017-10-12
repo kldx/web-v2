@@ -18,11 +18,11 @@
 <% end %>
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-md-8">
     <h2 class="card-title"><%= @article.title %></h2>
     <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= @article.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= @article.created_at.strftime("%d %B %Y") %> under <i class="fa fa-globe"></i> <%= @article.category.name %></small></p>
     <%= image_tag @article.default_picture_url(:header), class: "img-fluid" %>
-    
+
     <p><%= raw @article.content %></p>
 
     <%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>

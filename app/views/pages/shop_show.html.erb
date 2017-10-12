@@ -18,7 +18,7 @@
 <% end %>
 
 <div class="row">
-  <div class="col-8">
+  <div class="col-md-8">
     <h2 class="card-title"><%= @item.name %></h2>
     <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= @item.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= @item.created_at.strftime("%d %B %Y") %></small></p>
     <div class="row">
