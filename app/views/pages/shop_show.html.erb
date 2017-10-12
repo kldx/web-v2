@@ -1,0 +1,88 @@
+<% content_for :title do %>
+  KLDX | <%= @item.name %>
+<% end %>
+
+<% content_for :meta_tags do %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "article",
+               :title => "KLDX | #{@item.name}",
+               :url => request.url,
+               :description => "View details on this item at our website now",
+               :canonical => request.url,
+               :og_title => "KLDX | #{@item.name}",
+               :og_description => "View details on this item at our website now",
+               :og_image => "#{@item.default_picture_url(:big_thumb)}",
+               :article_author => "https://www.facebook.com/kldxteam"
+            } %>
+<% end %>
+
+<div class="row">
+  <div class="col-8">
+    <h2 class="card-title"><%= @item.name %></h2>
+    <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= @item.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= @item.created_at.strftime("%d %B %Y") %></small></p>
+    <div class="row">
+      <div class="col-md-6">
+        <%= image_tag @item.default_picture_url(:big_thumb), class: "img-fluid" %>
+      </div>
+      <div class="col">
+        <p>
+          <% if @item.sale_price.nil? || @item.sale_price == 0 %>
+            <h2><strong class="text-danger"><%= number_to_currency(@item.default_price, unit: "RM") %></strong></h2>
+          <% else %>
+            <h2><strong class="text-danger"><%= number_to_currency(@item.sale_price, unit: "RM") %></strong></h2>
+            <h4><s><small class="text-muted"><%= number_to_currency(@item.default_price, unit: "RM") %></small></s></h4>
+          <% end %>
+          <%= check_stock @item %>
+        </p>
+        <p>
+          Quantity: <span class="badge badge-secondary"><%= @item.quantity %></span>
+        </p>
+        <p>
+          <%= link_to "mailto:9m2r.kldx@gmail.com?cc=#{@item.user.email}&subject=#{@item.name}&body=I%20want%20to%20buy%20this%20.......", class: "btn btn-primary btn-sm btn-block #{"disabled" if @item.quantity <= 0}" do %>
+            <i class="fa fa-shopping-cart"></i> Buy Now
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <p><%= simple_format @item.description %></p>
+
+    <%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>
+  </div>
+  <div class="col">
+    <% @random_items.each_slice(1).with_index do |group,index| %>
+    <div class="card-deck" style="margin-bottom:20px;">
+      <% group.each do |item| %>
+      <div class="card">
+        <%= image_tag item.default_picture_url(:thumbnail), class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><span class="badge badge-secondary"><%= item.quantity %></span> <%= check_stock item %></p>
+          <p>
+            <% if item.sale_price.nil? || item.sale_price == 0 %>
+              <strong class="text-danger"><%= number_to_currency(item.default_price, unit: "RM") %></strong>
+            <% else %>
+              <strong class="text-danger"><%= number_to_currency(item.sale_price, unit: "RM") %></strong>
+              <s><small class="text-muted"><%= number_to_currency(item.default_price, unit: "RM") %></small></s>
+            <% end %>
+          </p>
+          <p class="small text-muted">Sell by <%= item.user.callsign.upcase %></p>
+        </div>
+        <div class="card-footer">
+          <%#= link_to "", class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
+            <!-- <i class="fa fa-shopping-cart"></i> Buy Now -->
+          <%# end %>
+          <%= link_to shop_show_path(item), class: "btn btn-outline-primary btn-sm btn-block" do %>
+            <i class="fa fa-share"></i> View details
+          <% end %>
+          <%= link_to "mailto:9m2r.kldx@gmail.com?cc=#{item.user.email}&subject=#{item.name}&body=I%20want%20to%20buy%20this%20.......", class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
+            <i class="fa fa-shopping-cart"></i> Buy Now
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>

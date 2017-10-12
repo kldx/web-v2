@@ -23,11 +23,18 @@ class PagesController < ApplicationController
 
   def crew() end
 
+  def about() end
+
   def shop
     @items = Item.all
   end
 
-  def about() end
+  def shop_show
+    @random_items = Item.order("RANDOM()").limit(2)
+    @item = Item.friendly.find params[:id]
+    rescue ActiveRecord::RecordNotFound
+      redirect_to(root_url, :notice => 'Record not found')
+  end
 
   private
 

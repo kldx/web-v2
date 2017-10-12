@@ -3,7 +3,7 @@ class Admin::Store::ItemsController < AdminController
   before_action :find_item, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.all
+    @items = Item.sort
   end
 
   def new

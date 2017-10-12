@@ -40,8 +40,10 @@ Rails.application.routes.draw do
   get 'c/:sort' => 'pages#category', as: 'category'
   get 'activities' => 'pages#activities', as: 'activities'
   get 'crew' => 'pages#crew', as: 'crew'
-  get 'shop' => 'pages#shop', as: 'shop'
   get 'about' => 'pages#about', as: 'about'
+  # shop/store
+  get 'shop' => 'pages#shop', as: 'shop'
+  get 'shop/:id' => 'pages#shop_show', as: 'shop_show'
 
   get 'page/:page' => 'pages#index'
   get 'c/:sort/page/:page' => 'pages#category'

@@ -5,9 +5,9 @@ class Item < ApplicationRecord
 
   belongs_to :user
 
-  default_scope -> { order('items.created_at DESC') }
+  scope :sort, -> { order('items.created_at DESC') }
   scope :featured, -> { where ('featured = TRUE')}
-  
+
   before_save :set_in_stock
 
   validates_presence_of :name, :quantity, :description, :default_price
