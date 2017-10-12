@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011110016) do
+ActiveRecord::Schema.define(version: 20171012055331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,22 @@ ActiveRecord::Schema.define(version: 20171011110016) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.text "description"
+    t.string "default_picture"
+    t.integer "quantity"
+    t.boolean "in_stock"
+    t.decimal "default_price", precision: 8, scale: 2
+    t.decimal "sale_price", precision: 8, scale: 2
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_items_on_slug", unique: true
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -118,4 +134,5 @@ ActiveRecord::Schema.define(version: 20171011110016) do
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
   add_foreign_key "banners", "users"
+  add_foreign_key "items", "users"
 end
