@@ -8,6 +8,6 @@ class Activity < ApplicationRecord
   scope :next_month, -> { where(start_time: 1.month.from_now.beginning_of_month..1.month.from_now.end_of_month) }
 
   STATUS_OPTIONS = [
-    "Normal", "Busy", "Unavailable"
+    ["Normal", 0], ["Busy", 1], ["Unavailable", 2]
   ]
 end
