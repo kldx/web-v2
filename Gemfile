@@ -51,6 +51,12 @@ gem 'sinatra'
 gem 'redis-namespace'
 gem 'capistrano-sidekiq'
 
+# gem for API development
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-10-stable'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-attack'
+gem 'redis-activesupport'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

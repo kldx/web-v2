@@ -19,6 +19,14 @@ Rails.application.routes.draw do
     end
   end
 
+  #api
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: :show
+      resources :articles, only: [:index, :show]
+    end
+  end
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
