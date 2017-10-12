@@ -1,3 +1,14 @@
 <% content_for :meta_tags do %>
-  <%= render :partial => 'application/meta_tags' %>
+  <%= render :partial => 'application/meta_tags',
+             :locals => {
+               :type => "article",
+               :title => "KLDX | Kuala Lumpur DX Team",
+               :url => request.url,
+               :description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTA, Field Day, and also Emergency Communication",
+               :canonical => request.url,
+               :og_title => "KLDX | Kuala Lumpur DX Team",
+               :og_description => "Kuala Lumpur DX Team Group Activists are moving on Amateur Radio activity especially contesting, IOTA, Field Day, and also Emergency Communication",
+               :og_image => "#{image_url('logo.png')}",
+               :article_author => "https://www.facebook.com/kldxteam"
+            } %>
 <% end %>
