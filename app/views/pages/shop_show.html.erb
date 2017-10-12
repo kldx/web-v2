@@ -48,7 +48,7 @@
     <hr>
     <h4>Description</h4>
     <hr>
-    <p><%= simple_format @item.description %></p>
+    <p><%= raw @item.description %></p>
 
     <%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>
   </div>
