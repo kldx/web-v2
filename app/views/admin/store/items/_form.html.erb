@@ -27,7 +27,7 @@
     <%= image_tag(@item.default_picture_url(:thumbnail), class: "img-responsive") %>
   </p>
   <% end %>
-  <%= f.file_field :default_picture, :class => "form-control-file", required: true %>
+  <%= f.file_field :default_picture, :class => "form-control-file" %>
   <%= f.hidden_field :default_picture_cache %>
   <small class="form-text text-muted">For best result, please upload only 246px * 180px</small>
 </div>
