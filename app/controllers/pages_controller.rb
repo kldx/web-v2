@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   def about() end
 
   def shop
-    @items = Item.all
+    @items = Item.sort
   end
 
   def shop_show
