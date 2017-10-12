@@ -19,7 +19,7 @@
   <%= f.label :default_picture %>
   <% if @banner.try(:default_picture?) %>
   <p>
-    <%= image_tag(@banner.default_picture_url(:headline), class: "img-responsive") %>
+    <%= image_tag(@banner.default_picture_url(:headline), class: "img-fluid") %>
   </p>
   <% end %>
   <%= f.file_field :default_picture, :class => "form-control-file" %>

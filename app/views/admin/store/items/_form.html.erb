@@ -24,7 +24,7 @@
   <%= f.label :default_picture %>
   <% if @item.try(:default_picture?) %>
   <p>
-    <%= image_tag(@item.default_picture_url(:thumbnail), class: "img-responsive") %>
+    <%= image_tag(@item.default_picture_url(:thumbnail), class: "img-fluid") %>
   </p>
   <% end %>
   <%= f.file_field :default_picture, :class => "form-control-file" %>

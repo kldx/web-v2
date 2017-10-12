@@ -1,4 +1,4 @@
 <h2><%= @banner.title %></h2>
 <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= @banner.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= @banner.created_at.strftime("%d %B %Y") %></small></p>
 <hr>
-<p><%= image_tag @banner.default_picture_url(:header), class: "img-responsive" %></p>
+<p><%= image_tag @banner.default_picture_url(:header), class: "img-fluid" %></p>

@@ -25,7 +25,7 @@
   <%= f.label :default_picture %>
   <% if @article.try(:default_picture?) %>
   <p>
-    <%= image_tag(@article.default_picture_url(:headline), class: "img-responsive") %>
+    <%= image_tag(@article.default_picture_url(:headline), class: "img-fluid") %>
   </p>
   <% end %>
   <%= f.file_field :default_picture, :class => "form-control-file" %>
