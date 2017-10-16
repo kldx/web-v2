@@ -38,7 +38,7 @@
       <%= link_to shop_show_path(item), class: "btn btn-outline-primary btn-sm btn-block", data: { turbolinks: false } do %>
         <i class="fa fa-share"></i> View details
       <% end %>
-      <%= link_to "mailto:9m2r.kldx@gmail.com?cc=#{item.user.email}&subject=#{item.name}&body=I%20want%20to%20buy%20this%20.......", class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}", data: { turbolinks: false } do %>
+      <%= link_to new_order_path(item), class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
         <i class="fa fa-shopping-cart"></i> Buy Now
       <% end %>
     </div>

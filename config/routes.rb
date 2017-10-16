@@ -52,6 +52,9 @@ Rails.application.routes.draw do
   # shop/store
   get 'shop' => 'pages#shop', as: 'shop'
   get 'shop/:id' => 'pages#shop_show', as: 'shop_show'
+  # public order
+  get 'shop/:item_id/orders/new' => 'orders#new', as: 'new_order'
+  post 'shop/:item_id/orders/' => 'orders#create', as: 'orders'
 
   get 'page/:page' => 'pages#index'
   get 'c/:sort/page/:page' => 'pages#category'
