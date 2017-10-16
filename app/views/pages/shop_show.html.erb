@@ -50,9 +50,20 @@
     <hr>
     <p><%= raw @item.description %></p>
 
-    <%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Back", :back, class: "btn btn-primary btn-sm", data: { turbolinks: false } %>
   </div>
   <div class="col">
+    <div class="counter">
+      <div class="card border-light">
+        <div class="card-header text-white bg-primary mb-3">
+          Page View
+        </div>
+        <div class="card-body">
+          <h3><%= @item.page_view %></h3>
+        </div>
+      </div>
+    </div>
+    <hr>
     <% @random_items.each_slice(1).with_index do |group,index| %>
     <div class="card-deck" style="margin-bottom:20px;">
       <% group.each do |item| %>

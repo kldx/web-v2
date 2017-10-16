@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   mount_uploader :default_picture, DefaultPictureUploader
   # process_in_background :default_picture
   acts_as_paranoid
+  is_impressionable :counter_cache => true, :column_name => :page_view, :unique => true
 
   belongs_to :user
   belongs_to :category

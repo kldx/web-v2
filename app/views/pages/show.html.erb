@@ -28,6 +28,17 @@
     <%= link_to "Back", :back, class: "btn btn-primary btn-sm", data: { turbolinks: false } %>
   </div>
   <div class="col">
+    <div class="counter">
+      <div class="card border-light">
+        <div class="card-header text-white bg-primary mb-3">
+          Page View
+        </div>
+        <div class="card-body">
+          <h3><%= @article.page_view %></h3>
+        </div>
+      </div>
+    </div>
+    <hr>
     <div class="calendar_activity">
       <p class="lead">This <%= Time.now.strftime("%B") %> Activities</p>
       <ul class="list-group">

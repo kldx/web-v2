@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :list_activity, only: [:index, :show, :category]
+
   def index
     @articles = Article.approved.page params[:page]
     @banners = Banner.where sort: 0..2
@@ -7,6 +8,7 @@ class PagesController < ApplicationController
 
   def show
     @article = Article.approved.friendly.find params[:id]
+    @impressionist = impressionist(@article)
     rescue ActiveRecord::RecordNotFound
       redirect_to(root_url, :notice => 'Record not found')
   end
@@ -32,6 +34,7 @@ class PagesController < ApplicationController
   def shop_show
     @random_items = Item.order("RANDOM()").limit(2)
     @item = Item.friendly.find params[:id]
+    @impressionist = impressionist(@item)
     rescue ActiveRecord::RecordNotFound
       redirect_to(root_url, :notice => 'Record not found')
   end
