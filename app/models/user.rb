@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :banners
   has_many :activities
   has_many :items
+  has_many :orders
 
   validates :callsign,
     presence: true,

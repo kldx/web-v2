@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   is_impressionable
 
   belongs_to :user
+  has_many :orders
 
   scope :sort, -> { order('items.created_at DESC') }
   scope :featured, -> { where ('featured = TRUE')}
