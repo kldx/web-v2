@@ -34,7 +34,7 @@
         <p><small class="text-muted">Submitted by <i class="fa fa-user-circle"></i> <%= article.user.callsign.upcase %> on <i class="fa fa-calendar"></i> <%= article.created_at.strftime("%d %B %Y") %> under <i class="fa fa-globe"></i> <%= article.category.name %></small></p>
         <p><%= image_tag article.default_picture_url(:headline), class: "img-fluid" %></p>
         <p><%= simple_format article.content.split[0..42].join(" ") %></p>
-        <p><%= link_to "read more", article_path(article), class: "btn btn-primary btn-sm" %></p>
+        <p><%= link_to "read more", article_path(article), class: "btn btn-primary btn-sm", data: { turbolinks: false } %></p>
       </div>
       <hr>
     <% end %>
@@ -61,6 +61,10 @@
         <% end %>
       </ul>
       <small class="form-text text-muted">See our full schedule of activities <%= link_to "here", activities_path %></small>
+    </div>
+    <hr>
+    <div class="facebook-page">
+      <div class="fb-page" data-href="https://www.facebook.com/kldxteam/" data-width="340" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kldxteam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kldxteam/">Kuala Lumpur DX Team - KLDX</a></blockquote></div>
     </div>
     <hr>
     <div class="side_category">

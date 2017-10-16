@@ -25,7 +25,7 @@
 
     <p><%= raw @article.content %></p>
 
-    <%= link_to "Back", :back, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Back", :back, class: "btn btn-primary btn-sm", data: { turbolinks: false } %>
   </div>
   <div class="col">
     <div class="calendar_activity">
@@ -43,6 +43,10 @@
         <% end %>
       </ul>
       <small class="form-text text-muted">See our full schedule of activities <%= link_to "here", activities_path %></small>
+    </div>
+    <hr>
+    <div class="facebook-page">
+      <div class="fb-page" data-href="https://www.facebook.com/kldxteam/" data-width="340" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/kldxteam/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/kldxteam/">Kuala Lumpur DX Team - KLDX</a></blockquote></div>
     </div>
     <hr>
     <div class="side_category">
