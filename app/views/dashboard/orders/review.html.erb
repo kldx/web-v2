@@ -1,0 +1,5 @@
+<p>Item Name: <%= @order.item.name %></p>
+<p>Price per unit: <%= number_to_currency(@order.item.sale_price, unit: "RM") %></p>
+<p>Quantity: <%= @order.quantity %></p>
+<p>Total Price: <%= number_to_currency(@order.price, unit: "RM") %></p>
+<p><%= link_to "Pay Now", "", class: "btn btn-primary" %></p>

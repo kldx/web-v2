@@ -1,8 +1,12 @@
 class Dashboard::OrdersController < DashboardController
-  before_action :set_user, only: [:index]
+  before_action :set_user, only: [:index, :review]
 
   def index
     @orders = @user.orders
+  end
+
+  def review
+    @order = @user.orders.find params[:id]
   end
 
   private

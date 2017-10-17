@@ -22,7 +22,11 @@ Rails.application.routes.draw do
 
   namespace :dashboard, path: '/dashboard' do
     get "/" => "dashboard#index"
-    resources :orders, except: [:new, :create, :edit, :update, :destroy]
+    resources :orders, except: [:new, :create, :edit, :update, :destroy] do
+      member do
+        get 'review'
+      end
+    end
   end
 
   #api

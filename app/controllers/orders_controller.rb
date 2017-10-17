@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
   def create
     @order = @item.orders.new order_params
     if @order.save
-      redirect_to shop_show_path(@item), notice: 'Order created!'
+      redirect_to review_dashboard_order_path(@order), notice: 'Order created!'
     else
       render 'new'
     end

@@ -6,4 +6,5 @@
   <td style="width:10%"><%= number_to_currency(order.item.sale_price, unit: "RM") %></td>
   <td style="width:10%"><%= number_to_currency(order.price, unit: "RM") %></td>
   <td style="width:10%"><%= order.status %></td>
+  <td style="width:5%"><%= link_to "View", review_dashboard_order_path(order), class: "btn btn-primary btn-sm" %></td>
 </tr>
