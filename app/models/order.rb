@@ -3,9 +3,11 @@ class Order < ApplicationRecord
 
   belongs_to :user
   belongs_to :item
+  has_one :invoice, dependent: :destroy
 
   after_save :deduct_quantity
   after_create :create_bill
+  before_create :build_default_invoice
 
   def deduct_quantity
     q = self.item.quantity - self.quantity
@@ -50,5 +52,10 @@ class Order < ApplicationRecord
 
     def due_date
       5.days.from_now.strftime("%Y-%b-%d")
+    end
+
+    def build_default_invoice
+      build_invoice
+      true
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017155925) do
+ActiveRecord::Schema.define(version: 20171017162358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,6 +121,18 @@ ActiveRecord::Schema.define(version: 20171017155925) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.bigint "order_id"
+    t.string "invoice_id"
+    t.string "state"
+    t.boolean "paid"
+    t.datetime "payment_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_invoices_on_invoice_id", unique: true
+    t.index ["order_id"], name: "index_invoices_on_order_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
@@ -193,6 +205,7 @@ ActiveRecord::Schema.define(version: 20171017155925) do
   add_foreign_key "articles", "categories"
   add_foreign_key "articles", "users"
   add_foreign_key "banners", "users"
+  add_foreign_key "invoices", "orders"
   add_foreign_key "items", "users"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
