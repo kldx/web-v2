@@ -5,6 +5,6 @@
   <td style="width:10%"><%= order.quantity %></td>
   <td style="width:10%"><%= number_to_currency(order.item.exact_price, unit: "RM") %></td>
   <td style="width:10%"><%= number_to_currency(order.price, unit: "RM") %></td>
-  <td style="width:10%"><%= order.status %></td>
+  <td style="width:10%"><%= check_order_status order %></td>
   <td style="width:10%"><%= order.user.callsign.upcase %></td>
 </tr>

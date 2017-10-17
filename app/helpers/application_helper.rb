@@ -31,4 +31,17 @@ module ApplicationHelper
       "<span class='badge badge-danger'>#{obj.in_stock}</span>".html_safe
     end
   end
+
+  def check_order_status obj
+    case obj.status
+    when "pending_payment"
+      "<span class='badge badge-warning'>Pending Payment</span>".html_safe
+    when "approved_payment"
+      "<span class='badge badge-primary'>Approved Payment</span>".html_safe
+    when "rejected_payment"
+      "<span class='badge badge-danger'>Rejected Payment</span>".html_safe
+    else
+      "<span class='badge badge-danger'>Cancelled</span>".html_safe
+    end
+  end
 end
