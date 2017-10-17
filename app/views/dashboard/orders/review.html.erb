@@ -1,5 +1,6 @@
 <h1>Order Details</h1>
 <hr>
+<p><strong>Bill ID:</strong> <%= @order.bill_id %></p>
 <p><strong>Item Name:</strong> <%= @order.item.name %></p>
 <p><strong>Price per unit:</strong> <%= number_to_currency(@order.item.exact_price, unit: "RM") %></p>
 <p><strong>Quantity:</strong> <%= @order.quantity %></p>
