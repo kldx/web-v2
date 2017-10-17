@@ -16,7 +16,13 @@ Rails.application.routes.draw do
     namespace :store, path: '/store' do
       get "/dashboard" => "dashboard#index", as: 'dashboard'
       resources :items, except: :show
+      resources :orders, except: [:new, :create, :edit, :update, :destroy]
     end
+  end
+
+  namespace :dashboard, path: '/dashboard' do
+    get "/" => "dashboard#index"
+    resources :orders, except: [:new, :create, :edit, :update, :destroy]
   end
 
   #api

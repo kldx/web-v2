@@ -28,11 +28,15 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.callsign.upcase %></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <%= link_to "Manage Category", admin_categories_path, class: "dropdown-item" %>
-            <%= link_to "Manage Article", admin_articles_path, class: "dropdown-item" %>
-            <%= link_to "Manage Banner", admin_banners_path, class: "dropdown-item" %>
-            <%= link_to "Manage Activity", admin_activities_path, class: "dropdown-item" %>
-            <%= link_to "Manage Store", admin_store_dashboard_path, class: "dropdown-item" %>
+            <% if current_user.admin? %>
+              <%= link_to "Manage Category", admin_categories_path, class: "dropdown-item" %>
+              <%= link_to "Manage Article", admin_articles_path, class: "dropdown-item" %>
+              <%= link_to "Manage Banner", admin_banners_path, class: "dropdown-item" %>
+              <%= link_to "Manage Activity", admin_activities_path, class: "dropdown-item" %>
+              <%= link_to "Manage Store", admin_store_dashboard_path, class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+            <% end %>
+            <%= link_to "Manage Order", dashboard_orders_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to destroy_user_session_path, method: "delete", class: "dropdown-item text-danger" do %>
               <i class="fa fa-sign-out"></i> Logout
