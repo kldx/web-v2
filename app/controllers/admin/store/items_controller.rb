@@ -1,6 +1,6 @@
 class Admin::Store::ItemsController < AdminController
   before_action :set_user, only: [:new, :create]
-  before_action :find_item, only: [:edit, :update, :destroy]
+  before_action :find_item, only: [:edit, :update, :destroy, :mark_out_of_stock]
 
   def index
     @items = Item.sort
@@ -36,12 +36,8 @@ class Admin::Store::ItemsController < AdminController
     end
   end
 
-  def destroy
-    if @item.destroy
-      redirect_to admin_store_items_path, notice: 'Item has been destroyed!'
-    else
-      render 'index'
-    end
+  def mark_out_of_stock
+    @item.update_attributes(quantity: 0, in_stock: false)
   end
 
   private

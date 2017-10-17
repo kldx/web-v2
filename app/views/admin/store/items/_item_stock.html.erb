@@ -1,0 +1,10 @@
+<div class="btn-group btn-group-sm" id="item-stock_<%= item.id %>">
+  <%= link_to edit_admin_store_item_path(item), class: "btn btn-primary" do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
+  <% if !item.no_stock %>
+    <%= link_to mark_out_of_stock_admin_store_item_path(item), method: :patch, remote: true, class: "btn btn-danger" do %>
+      <i class="fa fa-trash" aria-hidden="true"></i> Mark Out of Stock
+    <% end %>
+  <% end %>
+</div>

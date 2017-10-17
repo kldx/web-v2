@@ -15,7 +15,11 @@ Rails.application.routes.draw do
     resources :activities
     namespace :store, path: '/store' do
       get "/dashboard" => "dashboard#index", as: 'dashboard'
-      resources :items, except: :show
+      resources :items, except: [:show, :destroy] do
+        member do
+          patch :mark_out_of_stock
+        end
+      end
       resources :orders, except: [:new, :create, :edit, :update, :destroy]
     end
   end

@@ -1,0 +1,2 @@
+$("#item-status_<%= @item.id %>").html("<span class='badge badge-secondary'><%= @item.quantity %></span> <%= check_stock @item %>");
+$("#item-stock_<%= @item.id %>").html("<%= j render partial: 'item_stock', locals: {:item => @item} %>");

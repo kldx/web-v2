@@ -26,4 +26,8 @@ class Item < ApplicationRecord
       self.in_stock = true
     end
   end
+
+  def no_stock
+    self.in_stock == false
+  end
 end
