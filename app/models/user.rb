@@ -8,11 +8,14 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_one :profile, dependent: :destroy
   has_many :articles
   has_many :banners
   has_many :activities
   has_many :items
   has_many :orders
+
+  before_create :build_default_profile
 
   validates :callsign,
     presence: true,
@@ -41,4 +44,11 @@ class User < ApplicationRecord
       end
     end
   end
+
+  private
+
+    def build_default_profile
+      build_profile
+      true
+    end
 end

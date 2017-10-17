@@ -29,6 +29,11 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :account, path: '/account' do
+    resource :profiles, except: [:index, :new, :destroy]
+  end
+
+
   #api
   namespace :api do
     namespace :v1 do

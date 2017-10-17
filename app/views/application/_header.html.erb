@@ -28,6 +28,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.callsign.upcase %></a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
+            <%= link_to "My Profile", account_profiles_path, class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
             <% if current_user.admin? %>
               <%= link_to "Admin Dashboard", admin_path, class: "dropdown-item" %>
               <%= link_to "Manage Category", admin_categories_path, class: "dropdown-item" %>

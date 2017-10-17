@@ -1,0 +1,49 @@
+<%= form_with(model: profile, url: account_profiles_path, local: true) do |form| %>
+  <% if profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th>Fullname:</th>
+        <td><%= form.text_field :fullname, id: :profile_fullname, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th>Phone Number</th>
+        <td><%= form.text_field :phone_number, id: :profile_phone_number, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td><%= form.text_area :address, id: :profile_address, class: "form-control", rows: 3 %></td>
+      </tr>
+      <tr>
+        <th>Postcode</th>
+        <td><%= form.text_field :postcode, id: :profile_postcode, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th>City</th>
+        <td><%= form.text_field :city, id: :profile_city, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th>State</th>
+        <td><%= form.text_field :state, id: :profile_state, class: "form-control" %></td>
+      </tr>
+      <tr>
+        <th>Country</th>
+        <td><%= form.text_field :country, id: :profile_country, class: "form-control" %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <%= form.submit class: "btn btn-primary" %>
+  <%= link_to "Cancel", account_profiles_path, class: "btn btn-link" %>
+<% end %>

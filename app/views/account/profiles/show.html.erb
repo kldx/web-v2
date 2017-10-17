@@ -1,0 +1,34 @@
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th>Fullname:</th>
+      <td><%= @profile.fullname %></td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td><%= @profile.phone_number %></td>
+    </tr>
+    <tr>
+      <th>Address</th>
+      <td><%= @profile.address %></td>
+    </tr>
+    <tr>
+      <th>Postcode</th>
+      <td><%= @profile.postcode %></td>
+    </tr>
+    <tr>
+      <th>City</th>
+      <td><%= @profile.city %></td>
+    </tr>
+    <tr>
+      <th>State</th>
+      <td><%= @profile.state %></td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td><%= @profile.country %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_account_profiles_path, class: "btn btn-primary" %>
