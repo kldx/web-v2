@@ -2,3 +2,9 @@ site_url: http://kldxteam.com
 s3:
   bucket: web2-dev
   region: ap-southeast-1
+billplz:
+  url: https://www.billplz.com
+  collections:
+    url: https://www.billplz.com/api/v3/collections
+  bills:
+    url: https://www.billplz.com/api/v3/bills
