@@ -14,33 +14,32 @@
 <% end %>
 
 <% @items.each_slice(4).with_index do |group,index| %>
-<div class="card-deck" style="margin-bottom:20px;">
+<div class="row" style="margin-bottom:20px;">
   <% group.each do |item| %>
-  <div class="card">
-    <%= image_tag item.default_picture_url(:thumbnail), class: "card-img-top" %>
-    <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
-      <p class="card-text"><span class="badge badge-secondary"><%= item.quantity %></span> <%= check_stock item %></p>
-      <p>
-        <% if item.sale_price.nil? || item.sale_price == 0 %>
-          <strong class="text-danger"><%= number_to_currency(item.default_price, unit: "RM") %></strong>
-        <% else %>
-          <strong class="text-danger"><%= number_to_currency(item.sale_price, unit: "RM") %></strong>
-          <s><small class="text-muted"><%= number_to_currency(item.default_price, unit: "RM") %></small></s>
+  <div class="col-md-3">
+    <div class="card">
+      <%= image_tag item.default_picture_url(:thumbnail), class: "card-img-top" %>
+      <div class="card-body">
+        <h5 class="card-title" style="height: 50px;"><%= item.name %></h5>
+        <p class="card-text"><span class="badge badge-secondary"><%= item.quantity %></span> <%= check_stock item %></p>
+        <p>
+          <% if item.sale_price.nil? || item.sale_price == 0 %>
+            <strong class="text-danger"><%= number_to_currency(item.default_price, unit: "RM") %></strong>
+          <% else %>
+            <strong class="text-danger"><%= number_to_currency(item.sale_price, unit: "RM") %></strong>
+            <s><small class="text-muted"><%= number_to_currency(item.default_price, unit: "RM") %></small></s>
+          <% end %>
+        </p>
+        <p class="small text-muted">Sell by <%= item.user.callsign.upcase %></p>
+      </div>
+      <div class="card-footer">
+        <%= link_to shop_show_path(item), class: "btn btn-outline-primary btn-sm btn-block", data: { turbolinks: false } do %>
+          <i class="fa fa-share"></i> View details
         <% end %>
-      </p>
-      <p class="small text-muted">Sell by <%= item.user.callsign.upcase %></p>
-    </div>
-    <div class="card-footer">
-      <%#= link_to "", class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
-        <!-- <i class="fa fa-shopping-cart"></i> Buy Now -->
-      <%# end %>
-      <%= link_to shop_show_path(item), class: "btn btn-outline-primary btn-sm btn-block", data: { turbolinks: false } do %>
-        <i class="fa fa-share"></i> View details
-      <% end %>
-      <%= link_to new_order_path(item), class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
-        <i class="fa fa-shopping-cart"></i> Buy Now
-      <% end %>
+        <%= link_to new_order_path(item), class: "btn btn-primary btn-sm btn-block #{"disabled" if item.quantity <= 0}" do %>
+          <i class="fa fa-shopping-cart"></i> Buy Now
+        <% end %>
+      </div>
     </div>
   </div>
   <% end %>
