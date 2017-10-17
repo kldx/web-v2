@@ -8,6 +8,6 @@ class Category < ApplicationRecord
   default_scope -> { order('categories.name DESC') }
 
   def should_generate_new_friendly_id?
-    saved_change_to_name?
+    will_save_change_to_name?
   end
 end

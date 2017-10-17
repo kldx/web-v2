@@ -15,6 +15,6 @@ class Banner < ApplicationRecord
   scope :rejected, -> { where ('status = 2')}
 
   def should_generate_new_friendly_id?
-    saved_change_to_title?
+    will_save_change_to_title?
   end
 end

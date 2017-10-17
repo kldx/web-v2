@@ -17,7 +17,7 @@ class Item < ApplicationRecord
   validates_numericality_of :quantity
 
   def should_generate_new_friendly_id?
-    saved_change_to_name?
+    will_save_change_to_name?
   end
 
   def set_in_stock
