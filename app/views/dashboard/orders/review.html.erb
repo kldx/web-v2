@@ -18,4 +18,10 @@
     <i class="fa fa-credit-card"></i> Pay Now
     <% end %>
   </p>
+<% else %>
+  <hr>
+  <p>
+    <%= link_to "Manage Order", dashboard_orders_path, class: "btn btn-primary" %>
+    <%= link_to "Download Invoice", dashboard_order_invoices_path(@order, :format => "pdf"), target: "_blank", class: "btn btn-outline-success" %>
+  </p>
 <% end %>

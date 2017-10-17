@@ -14,7 +14,7 @@
         <%= link_to "View", review_dashboard_order_path(order), class: "btn btn-success" %>
         <% end %>
       <% else %>
-        <%= link_to "View", review_dashboard_order_path(order), class: "btn btn-success" %>
+        <%= link_to "Download Invoice", dashboard_order_invoices_path(order, :format => "pdf"), target: "_blank", class: "btn btn-outline-success" %>
       <% end %>
     </div>
   </td>

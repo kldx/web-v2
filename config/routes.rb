@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         post 'callback' => 'orders#callback'
         get 'webhook' => 'orders#webhook'
       end
+      resource :invoices, only: :show
     end
   end
 
