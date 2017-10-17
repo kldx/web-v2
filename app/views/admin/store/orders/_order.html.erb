@@ -7,4 +7,5 @@
   <td style="width:10%"><%= number_to_currency(order.price, unit: "RM") %></td>
   <td style="width:10%"><%= check_order_status order %></td>
   <td style="width:10%"><%= order.user.callsign.upcase %></td>
+  <td style="width:5%"><%= link_to "View", review_admin_store_order_path(order), class: "btn btn-success btn-sm" %></td>
 </tr>

@@ -20,7 +20,11 @@ Rails.application.routes.draw do
           patch :mark_out_of_stock
         end
       end
-      resources :orders, except: [:new, :create, :edit, :update, :destroy]
+      resources :orders, except: [:new, :create, :edit, :update, :destroy] do
+        member do
+          get 'review'
+        end
+      end
     end
   end
 

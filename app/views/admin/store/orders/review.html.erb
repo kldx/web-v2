@@ -1,0 +1,18 @@
+<h1>Order Details</h1>
+<hr>
+<p><strong>Bill ID:</strong> <%= @order.bill_id %></p>
+<p><strong>Item Name:</strong> <%= @order.item.name %></p>
+<p><strong>Price per unit:</strong> <%= number_to_currency(@order.item.exact_price, unit: "RM") %></p>
+<p><strong>Quantity:</strong> <%= @order.quantity %></p>
+<p class="text-primary"><strong>TOTAL PRICE: <%= number_to_currency(@order.price, unit: "RM") %></strong></p>
+<p><strong>Status:</strong> <%= check_order_status @order %></p>
+<h1>Shipping Details</h1>
+<hr>
+<p><strong>Full Name:</strong> <%= @order.user.profile.fullname %> (<%= @order.user.callsign.upcase %>)</p>
+<p><strong>Phone Number:</strong> <%= @order.user.profile.phone_number %></p>
+<p><strong>Shipping Address:</strong> <%= @order.user.profile.full_address? %> <small><%= link_to "(update address)", edit_account_profiles_path %></small></p>
+<hr>
+<p>
+  <%= link_to "Manage Order", admin_store_orders_path, class: "btn btn-primary" %>
+  <%= link_to "Download Invoice", dashboard_order_invoices_path(@order, :format => "pdf"), target: "_blank", class: "btn btn-outline-success" %>
+</p>
