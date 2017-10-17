@@ -543,6 +543,7 @@ DEPENDENCIES
   rails_sortable
   redis-activesupport
   redis-namespace
+  rest-client
   sass-rails (~> 5.0)
   sidekiq
   sinatra

@@ -11,7 +11,7 @@
 <p><strong>Shipping Address:</strong> <%= @order.user.profile.full_address? %> <small><%= link_to "(update address)", edit_account_profiles_path %></small></p>
 <hr>
 <p>
-  <%= link_to "", class: "btn btn-primary #{"disabled" if @order.user.profile.no_address}" do %>
+  <%= link_to Settings.billplz.url+"/bills/#{@order.bill_id}", target: "_blank", class: "btn btn-primary #{"disabled" if @order.user.profile.no_address}" do %>
   <i class="fa fa-credit-card"></i> Pay Now
   <% end %>
 </p>
