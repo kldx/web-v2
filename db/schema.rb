@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 20171017162358) do
   create_table "invoices", force: :cascade do |t|
     t.bigint "order_id"
     t.string "invoice_id"
-    t.string "state"
-    t.boolean "paid"
+    t.string "state", default: "due"
+    t.boolean "paid", default: false
     t.datetime "payment_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

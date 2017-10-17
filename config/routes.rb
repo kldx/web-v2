@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     resources :orders, except: [:new, :create, :edit, :update, :destroy] do
       member do
         get 'review'
+        post 'callback' => 'orders#callback'
+        get 'webhook' => 'orders#webhook'
       end
     end
   end

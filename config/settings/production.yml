@@ -1,4 +1,4 @@
-site_url: 'kldxteam.com'
+site_url: http://kldxteam.com
 s3:
   bucket: web2-dev
   region: ap-southeast-1

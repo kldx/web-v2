@@ -3,8 +3,8 @@ class CreateInvoices < ActiveRecord::Migration[5.1]
     create_table :invoices do |t|
       t.references :order, foreign_key: true
       t.string :invoice_id
-      t.string :state
-      t.boolean :paid
+      t.string :state, default: 'due'
+      t.boolean :paid, default: false
       t.datetime :payment_at
 
       t.timestamps

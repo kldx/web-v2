@@ -1,4 +1,4 @@
-site_url: 'localhost:3000'
+site_url: http://localhost:3000
 s3:
   bucket: web2-dev
   region: ap-southeast-1

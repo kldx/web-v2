@@ -5,6 +5,7 @@
 <p><strong>Price per unit:</strong> <%= number_to_currency(@order.item.exact_price, unit: "RM") %></p>
 <p><strong>Quantity:</strong> <%= @order.quantity %></p>
 <p class="text-primary"><strong>TOTAL PRICE: <%= number_to_currency(@order.price, unit: "RM") %></strong></p>
+<p><strong>Status:</strong> <%= @order.status %></p>
 <h1>Shipping Details</h1>
 <hr>
 <p><strong>Full Name:</strong> <%= @order.user.profile.fullname %> (<%= @order.user.callsign.upcase %>)</p>

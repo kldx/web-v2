@@ -21,7 +21,7 @@ class Order < ApplicationRecord
                                         description,
                                         customer_email,customer_fullname,
                                         price_in_cents,callback_url,
-                                        callback_url,due_date)
+                                        redirect_url,due_date)
       self.update_attribute(:bill_id, response["id"])
     end
 
@@ -46,8 +46,11 @@ class Order < ApplicationRecord
     end
 
     def callback_url
-      # "#{Settings.app_url}/dashboard/clients/#{self.client_id}/bills/#{self.id}/callback"
-      "#{Settings.site_url}"
+      "#{Settings.site_url}/dashboard/orders/#{self.id}/callback"
+    end
+
+    def redirect_url
+      "#{Settings.site_url}/dashboard/orders/#{self.id}/webhook"
     end
 
     def due_date
