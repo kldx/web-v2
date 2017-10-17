@@ -1,7 +1,7 @@
 <h1>Order Details</h1>
 <hr>
 <p><strong>Item Name:</strong> <%= @order.item.name %></p>
-<p><strong>Price per unit:</strong> <%= number_to_currency(@order.item.sale_price, unit: "RM") %></p>
+<p><strong>Price per unit:</strong> <%= number_to_currency(@order.item.exact_price, unit: "RM") %></p>
 <p><strong>Quantity:</strong> <%= @order.quantity %></p>
 <p class="text-primary"><strong>TOTAL PRICE: <%= number_to_currency(@order.price, unit: "RM") %></strong></p>
 <h1>Shipping Details</h1>
