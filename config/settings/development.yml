@@ -2,3 +2,9 @@ site_url: 'localhost:3000'
 s3:
   bucket: web2-dev
   region: ap-southeast-1
+billplz:
+  url: https://billplz-staging.herokuapp.com
+  collections:
+    url: https://billplz-staging.herokuapp.com/api/v3/collections
+  bills:
+    url: https://billplz-staging.herokuapp.com/api/v3/bills

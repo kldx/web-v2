@@ -11,6 +11,7 @@ class Item < ApplicationRecord
   scope :featured, -> { where ('featured = TRUE')}
 
   before_save :set_in_stock
+  after_create :create_collection
 
   validates_presence_of :name, :quantity, :description, :default_price
   validates_numericality_of :quantity
@@ -38,4 +39,12 @@ class Item < ApplicationRecord
       sale_price
     end
   end
+
+  private
+
+    def create_collection
+      response = Billplz::PostCollection.send(self.name)
+      self.update_attribute(:collection_id, response["id"])
+    end
+
 end
