@@ -17,7 +17,7 @@
 
 <div class="form-group">
   <%= f.label "Price" %>
-  <%= f.text_field nil, value: number_with_precision(@item.sale_price, precision: 2), class: "form-control", id: "item_price", disabled: true %>
+  <%= f.text_field nil, value: number_with_precision(@item.exact_price, precision: 2), class: "form-control", id: "item_price", disabled: true %>
 </div>
 
 <div class="form-group">

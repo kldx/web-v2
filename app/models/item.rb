@@ -30,4 +30,12 @@ class Item < ApplicationRecord
   def no_stock
     self.in_stock == false
   end
+
+  def exact_price
+    if sale_price.nil?
+      default_price
+    else
+      sale_price
+    end
+  end
 end
