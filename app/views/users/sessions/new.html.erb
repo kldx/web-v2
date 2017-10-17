@@ -23,8 +23,10 @@
         </div>
       <% end -%>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary btn-block" %>
     <% end %>
+    <hr>
+    <p class="small">Don't have an account yet? Create one <%= link_to "here", register_path %></p>
 
   </div>
   <div class="col"></div>
