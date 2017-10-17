@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin, path: '/admin' do
     mount Sidekiq::Web, at: '/sidekiq'
-    get "/" => "dashboard#index", as: 'admin'
+    get "/" => "dashboard#index"
     resources :categories, except: [:edit, :update]
     resources :articles, except: :show do
       member do
