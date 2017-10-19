@@ -26,6 +26,7 @@ class Dashboard::OrdersController < DashboardController
       if @invoice.state == 'paid'
         @invoice.order.update_attributes(status: 1, due_date_at: nil)
       end
+      @order.create_shipping
       redirect_to review_dashboard_order_path(@order)
     else
       render 'index'

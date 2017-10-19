@@ -15,6 +15,7 @@
         <% end %>
       <% else %>
         <%= link_to "Download Invoice", dashboard_order_invoices_path(order, :format => "pdf"), target: "_blank", class: "btn btn-outline-success" %>
+        <%= link_to "Shipping Status", dashboard_order_shippings_path(order), class: "btn btn-outline-secondary" %>
       <% end %>
     </div>
   </td>
