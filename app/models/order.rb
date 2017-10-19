@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   belongs_to :item
   has_one :invoice, dependent: :destroy
 
-  after_save :deduct_quantity
+  after_create :deduct_quantity
   after_create :create_bill
   before_create :build_default_invoice
 
