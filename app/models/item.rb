@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders, :history]
   mount_uploader :default_picture, DefaultPictureShopUploader
-  is_impressionable
+  is_impressionable :counter_cache => true, :column_name => :page_view, :unique => true
 
   belongs_to :user
   has_many :orders
