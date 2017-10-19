@@ -22,7 +22,7 @@ class Order < ApplicationRecord
                                         customer_email,customer_fullname,
                                         price_in_cents,callback_url,
                                         redirect_url,due_date)
-      self.update_attribute(:bill_id, response["id"])
+      self.update_attributes(bill_id: response["id"], due_date_at: due_date)
     end
 
     def collection_id
