@@ -24,6 +24,13 @@ Rails.application.routes.draw do
         member do
           get 'review'
         end
+        resource :shippings, except: [:new, :create, :destroy] do
+          member do
+            patch :checking
+            patch :registering
+            patch :delivering
+          end
+        end
       end
     end
   end

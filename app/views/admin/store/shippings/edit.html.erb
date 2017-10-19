@@ -1,0 +1,6 @@
+<h1>Edit Shipping Details</h1>
+<hr>
+
+<%= form_with(model: @shipping, url: admin_store_order_shippings_path, local: true) do |form| %>
+  <%= render partial: 'form', locals: {form: form, shipping: @shipping} %>
+<% end %>

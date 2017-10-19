@@ -1,0 +1,2 @@
+$("#shipping-status_<%= @shipping.id %>").html("<%= j render partial: 'shipping_status', locals: {:shipping => @shipping} %>");
+$("#shipping-state_<%= @shipping.id %>").html("Ready to ship");

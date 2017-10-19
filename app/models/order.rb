@@ -6,6 +6,8 @@ class Order < ApplicationRecord
   has_one :invoice, dependent: :destroy
   has_one :shipping, dependent: :destroy
 
+  scope :sort, -> { order('orders.created_at DESC') }
+
   after_create :deduct_quantity
   after_create :create_bill
   before_create :build_default_invoice

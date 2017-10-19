@@ -1,6 +1,6 @@
 class Admin::Store::OrdersController < AdminController
   def index
-    @orders = Order.all
+    @orders = Order.sort
   end
 
   def review

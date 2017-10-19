@@ -2,7 +2,7 @@ class Dashboard::OrdersController < DashboardController
   before_action :set_user, only: [:index, :review, :callback, :webhook]
 
   def index
-    @orders = @user.orders
+    @orders = @user.orders.sort
   end
 
   def review

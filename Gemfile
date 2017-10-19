@@ -56,6 +56,7 @@ gem 'rest-client'
 gem 'prawn'
 gem 'prawn-table'
 gem 'whenever', :require => false
+gem 'aasm'
 
 # gem for API development
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-10-stable'

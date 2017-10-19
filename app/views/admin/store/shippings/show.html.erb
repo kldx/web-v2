@@ -18,18 +18,18 @@
   </div>
 </div>
 <hr>
-<h4>Shipment Details</h4>
+<h4>Shipment Details <small><%= link_to "Edit shipping status", edit_admin_store_order_shippings_path, class: "btn btn-link btn-sm" %></small></h4>
 <br/>
-<p><strong>Order Bill ID: </strong><%= @order.bill_id %></p>
+<p><strong>Order Bill ID: </strong><%= @shipping.order.bill_id %></p>
 <p><strong>Shipping Courier: </strong><%= @shipping.set_shipping_type %></p>
 <% if @shipping.preparation? %>
   <p><strong>Preparation Date: </strong><%= @shipping.prepare_at.strftime("%d %B %Y") %></p>
 <% elsif @shipping.ready_to_ship? %>
   <p><strong>Shipping Ready to Ship Date: </strong><%= @shipping.ready_at.strftime("%d %B %Y") %></p>
 <% elsif @shipping.shipped? %>
-  <p><strong>Shipped Date: </strong><%= @shipping.shipped.strftime("%d %B %Y") %></p>
+  <p><strong>Shipped Date: </strong><%= @shipping.shipped_at.strftime("%d %B %Y") %></p>
 <% elsif @shipping.delivered? %>
-  <p><strong>Delivered Date: </strong><%= @shipping.delivered.strftime("%d %B %Y") %></p>
+  <p><strong>Delivered Date: </strong><%= @shipping.delivered_at.strftime("%d %B %Y") %></p>
 <% end %>
 <p><strong>Tracking Number: </strong><%= @shipping.set_tracking_number %></p>
 <p><strong>Note: </strong><%= @shipping.set_note %></p>

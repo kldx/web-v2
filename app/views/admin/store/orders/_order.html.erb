@@ -1,11 +1,21 @@
 <% index = order_counter + 0 %>
 <tr>
   <td style="width:5%"><%= index+1 %></td>
-  <td><small class="text-primary">[Bill ID: <%= order.bill_id %>]</small> <%= order.item.name %></td>
+  <td>
+    <small class="text-primary">[Bill ID: <%= order.bill_id %>]</small> <%= order.item.name %><br>
+    <small>Shipping Status: <%= order.shipping.status.titleize.split(/ |\_|\-/).map(&:capitalize).join(" ") %></small>
+  </td>
   <td style="width:10%"><%= order.quantity %></td>
   <td style="width:10%"><%= number_to_currency(order.item.exact_price, unit: "RM") %></td>
   <td style="width:10%"><%= number_to_currency(order.price, unit: "RM") %></td>
   <td style="width:10%"><%= check_order_status order %></td>
   <td style="width:10%"><%= order.user.callsign.upcase %></td>
-  <td style="width:5%"><%= link_to "View", review_admin_store_order_path(order), class: "btn btn-success btn-sm" %></td>
+  <td style="width:5%">
+    <div class="btn-group btn-group-sm">
+      <%= link_to "View", review_admin_store_order_path(order), class: "btn btn-success btn-sm" %>
+      <% if order.approved_payment? %>
+        <%= link_to "Shipping Status", admin_store_order_shippings_path(order), class: "btn btn-outline-secondary" %>
+      <% end %>
+    </div>
+  </td>
 </tr>

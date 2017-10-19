@@ -1,0 +1,9 @@
+<% if shipping.preparation? %>
+  <%= link_to "Mark Ready to Ship", checking_admin_store_order_shippings_path, method: :patch, remote: true, class: "btn btn-sm btn-warning" %>
+<% elsif shipping.ready_to_ship? %>
+  <%= link_to "Mark as shipped", registering_admin_store_order_shippings_path, method: :patch, remote: true, class: "btn btn-sm btn-success" %>
+<% elsif shipping.shipped? %>
+  <%= link_to "Mark as delivered", delivering_admin_store_order_shippings_path, method: :patch, remote: true, class: "btn btn-sm btn-primary" %>
+<% else %>
+  <%= link_to "Completed", "", method: :patch, remote: true, class: "btn btn-sm btn-danger disabled" %>
+<% end %>
