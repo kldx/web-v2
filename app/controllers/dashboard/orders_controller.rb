@@ -24,7 +24,7 @@ class Dashboard::OrdersController < DashboardController
                                 state: @response["state"],
                                 paid: @response["paid"])
       if @invoice.state == 'paid'
-        @invoice.order.update_attribute(:status, 1)
+        @invoice.order.update_attributes(status: 1, due_date_at: nil)
       end
       redirect_to review_dashboard_order_path(@order)
     else
