@@ -36,6 +36,10 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/syst
 set :bundle_bins, fetch(:bundle_bins, []).push(:sidekiq)
 set :pty,  false
 
+#whenever
+set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+# set :whenever_roles, [:db, :app]
+
 # Default value for keep_releases is 5
 set :keep_releases, 1
 
