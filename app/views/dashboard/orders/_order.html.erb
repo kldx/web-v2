@@ -1,7 +1,7 @@
 <% index = order_counter + 0 %>
 <tr>
   <td style="width:5%"><%= index+1 %></td>
-  <td><%= order.item.name %></td>
+  <td><small class="text-primary">[Bill ID: <%= order.bill_id %>]</small> <%= order.item.name %></td>
   <td style="width:10%"><%= order.quantity %></td>
   <td style="width:10%"><%= number_to_currency(order.item.exact_price, unit: "RM") %></td>
   <td style="width:10%"><%= number_to_currency(order.price, unit: "RM") %></td>
