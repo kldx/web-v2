@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :activities
   has_many :items
   has_many :orders
+  has_many :comments
 
   before_create :build_default_profile
 

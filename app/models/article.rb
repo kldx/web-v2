@@ -8,6 +8,7 @@ class Article < ApplicationRecord
 
   belongs_to :user
   belongs_to :category
+  has_many :comments, as: :commentable, dependent: :destroy
 
   enum status: [:pending, :approved, :rejected]
 
