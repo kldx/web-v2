@@ -1,0 +1,23 @@
+<% commentable.comments.each do |comment| %>
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag 'avatar.png', class: "rounded-circle img-fluid img-thumbnail", width: 75 %>
+  </div>
+  <div class="col">
+    <div class="card card-comment" id="all_comment">
+      <div class="card-header">
+        <span class="text-secondary">by </span><%= comment.user.callsign.upcase %>
+        <span class="small text-secondary pull-right" style="margin-top:5px;">Posted <%= time_ago_in_words(comment.created_at) %> ago</span>
+      </div>
+      <div class="card-body">
+        <%= comment.body %>
+      </div>
+      <% if user_signed_in? && current_user.admin? %>
+        <div class="card-footer">
+          <%= link_to 'delete', article_comment_path(commentable, id: comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-link btn-sm pull-right", style: "color:#e74c3c;" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -78,6 +78,9 @@ Rails.application.routes.draw do
   root 'pages#index'
   # article show page
   get 'a/:id' => 'pages#show', as: 'article'
+  get 'a/:article_id' => 'comments#index', as: 'article_comments'
+  post 'a/:article_id' => 'comments#create'
+  delete 'a/:article_id/comments/:id' => 'comments#destroy', as: 'article_comment'
   #category
   get 'c/:sort' => 'pages#category', as: 'category'
   get 'activities' => 'pages#activities', as: 'activities'
