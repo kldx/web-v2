@@ -1,0 +1,13 @@
+<% index = comment_counter + 0 %>
+<tr>
+  <td style="width:3%"><%= index+1 %></td>
+  <td style="width:30%"><%= comment.body %></td>
+  <td style="width:35%"><%= link_to comment.commentable.title, article_path(comment.commentable), target: "_blank" %></td>
+  <td style="width:10%"><%= comment.user.callsign.upcase %></td>
+  <td style="width:17%"><%= time_ago_in_words(comment.created_at) %> ago</td>
+  <td style="width:5%">
+    <%= link_to admin_comment_path(comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger btn-sm" do %>
+      <i class="fa fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :comments, only: [:index, :destroy]
   end
 
   namespace :dashboard, path: '/dashboard' do
