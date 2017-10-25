@@ -15,24 +15,30 @@
 
 <h2><%= Time.now.strftime("%B %Y") %></h2>
 
-<% @activities_this_month.each_slice(3).with_index do |group,index| %>
-<div class="row" style="margin-bottom:20px;">
+<% @activities_this_month.each_slice(4).with_index do |group,index| %>
+<div class="card-deck" style="margin-bottom:20px;">
   <% group.each do |activity| %>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header">
-        <small class="text-muted"><%= activity.start_time.strftime("%A, %d %b %Y %I:%M %p") %> - <%= activity.end_time.strftime("%A, %d %b %Y %I:%M %p") %></small>
-      </div>
+  <!-- <div class="col-md-3"> -->
+    <div class="card" style="max-width:247.5px">
+      <%= image_tag activity.default_picture_url(:thumbnail), class: "card-img-top img-fluid" %>
       <div class="card-body">
         <h4 class="card-title"><%= activity.title %></h4>
-        <p class="card-text"><%= simple_format activity.description %></p>
+        <p class="card-text small"><%= simple_format activity.description %></p>
+        <p class="card-text small">
+          <strong>Organizer:</strong> <%= activity.organizer %><br>
+          <strong>Venue:</strong> <%= activity.venue %>
+        </p>
+        <p class="card-text small">
+          <strong>Starting:</strong> <span class="badge badge-secondary"><%= activity.start_time.strftime("%d %b %Y %I:%M %p") %></span><br>
+          <strong>Until:</strong> <span class="badge badge-secondary"><%= activity.end_time.strftime("%d %b %Y %I:%M %p") %></span>
+        </p>
       </div>
       <div class="card-footer">
         Status: <%= check_status activity %>
         <%= "<span class='badge badge-success'>Happening Now</span>".html_safe if (activity.start_time.to_i..activity.end_time.to_i) === Time.now.to_i  %>
       </div>
     </div>
-  </div>
+  <!-- </div> -->
   <% end %>
 </div>
 <% end %>

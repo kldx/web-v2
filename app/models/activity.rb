@@ -1,5 +1,9 @@
 class Activity < ApplicationRecord
+  mount_uploader :default_picture, DefaultPictureUploader
+
   belongs_to :user
+
+  validates_presence_of :default_picture
 
   default_scope -> { order('activities.start_time ASC') }
   scope :today, -> { where(start_time: DateTime.now.beginning_of_day..DateTime.now.end_of_day) }

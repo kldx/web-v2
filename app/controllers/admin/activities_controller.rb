@@ -59,6 +59,6 @@ class Admin::ActivitiesController < AdminController
     end
 
     def activity_params
-      params.require(:activity).permit(:user_id, :title, :description, :start_time, :end_time, :status)
+      params.require(:activity).permit(:user_id, :title, :description, :start_time, :end_time, :status, :default_picture, :default_picture_cache, :organizer, :venue)
     end
 end
