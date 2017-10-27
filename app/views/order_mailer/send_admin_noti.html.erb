@@ -1,0 +1,17 @@
+<h3>Hello admin,</h3>
+<p>Someone has placed an order at your website. Here is the detail for your reference:</p>
+<p>
+  <strong>Item Name:</strong> <%= @order.item.name %><br>
+  <strong>Quantity:</strong> <%= @order.quantity %><br>
+  <strong>Price:</strong> <%= number_to_currency(@order.price, unit: "RM") %><br>
+  <strong>Status:</strong> <%= @order.status %>
+</p>
+<p>
+  <strong>Customer Name:</strong> <%= @order.user.profile.fullname %><br>
+  <strong>Customer Callsign:</strong> <%= @order.user.callsign.upcase %><br>
+  <strong>Phone Number:</strong> <%= @order.user.profile.phone_number %><br>
+  <strong>Shipping Address:</strong> <%= @order.user.profile.shipping_address %>
+</p>
+<p>
+  Check the details <%= link_to "here", admin_store_order_url(@order), target: "_blank" %>
+</p>

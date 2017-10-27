@@ -1,0 +1,12 @@
+Hello admin,
+Someone has placed an order at your website. Here is the detail for your reference:
+
+Item Name: <%= @order.item.name %>
+Quantity: <%= @order.quantity %>
+Price: <%= number_to_currency(@order.price, unit: "RM") %>
+Status: <%= @order.status %>
+
+Customer Name: <%= @order.user.profile.fullname %>
+Customer Callsign: <%= @order.user.callsign.upcase %>
+Phone Number: <%= @order.user.profile.phone_number %>
+Shipping Address: <%= @order.user.profile.shipping_address %>

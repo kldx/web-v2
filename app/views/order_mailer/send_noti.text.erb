@@ -1,0 +1,15 @@
+Hello <%= @order.user.callsign.upcase %>,
+Thank you for your order. Here is the detail for your reference:
+
+Item Name: <%= @order.item.name %>
+Quantity: <%= @order.quantity %>
+Price: <%= number_to_currency(@order.price, unit: "RM") %>
+Status: <%= @order.status %>
+
+Customer Name: <%= @order.user.profile.fullname %>
+Phone Number: <%= @order.user.profile.phone_number %>
+Shipping Address: <%= @order.user.profile.shipping_address %>
+
+<% if @order.pending_payment? && @order.user.profile.present? %>
+  <%= link_to "Pay Now", Settings.billplz.url+"/bills/#{@order.bill_id}", target: "_blank" %>
+<% end %>

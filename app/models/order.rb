@@ -11,10 +11,16 @@ class Order < ApplicationRecord
   after_create :deduct_quantity
   after_create :create_bill
   before_create :build_default_invoice
+  after_create :send_noti
 
   def deduct_quantity
     q = self.item.quantity - self.quantity
     self.item.update_attribute(:quantity, q)
+  end
+
+  def send_noti
+    OrderMailer.send_noti(self).deliver_now
+    OrderMailer.send_admin_noti(self).deliver_now
   end
 
   private
