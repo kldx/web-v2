@@ -5,7 +5,7 @@
   <td><%= activity.start_time.strftime("%d/%m/%Y at %I:%M %p") %></td>
   <td><%= activity.end_time.strftime("%d/%m/%Y at %I:%M %p") %></td>
   <td><%= activity.user.callsign.upcase %></td>
-  <td style="width:15%">
+  <td style="width:17%">
     <div class="btn-group btn-group-sm">
       <%= link_to edit_admin_activity_path(activity), class: "btn btn-primary" do %>
         <i class="fa fa-pencil" aria-hidden="true"></i>

@@ -21,7 +21,7 @@
 </div>
 
 <div class="form-group">
-  <%= f.label :default_picture %>
+  <%= f.label :default_picture, "Default Picture" %>
   <% if @item.try(:default_picture?) %>
   <p>
     <%= image_tag(@item.default_picture_url(:thumbnail), class: "img-fluid") %>
@@ -32,21 +32,27 @@
   <small class="form-text text-muted">For best result, please upload only 246px * 180px</small>
 </div>
 
-<div class="form-group">
-  <%= f.label :quantity %>
-  <%= f.number_field :quantity, class: "form-control", required: true %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :quantity, "Quantity in Stock" %>
+      <%= f.number_field :quantity, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :default_price, "Default Price" %>
+      <%= f.text_field :default_price, class: "form-control", required: true %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <%= f.label :sale_price, "Selling Price" %>
+      <%= f.text_field :sale_price, class: "form-control" %>
+      <small class="form-text text-muted">Leave blank if you don't wish to give a discount</small>
+    </div>
+  </div>
 </div>
 
-<div class="form-group">
-  <%= f.label :default_price %>
-  <%= f.text_field :default_price, class: "form-control", required: true %>
-</div>
-
-<div class="form-group">
-  <%= f.label :sale_price %>
-  <%= f.text_field :sale_price, class: "form-control" %>
-  <small class="form-text text-muted">Leave blank if you don't wish to give a discount</small>
-</div>
-
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Cancel", admin_store_items_path, class: "btn btn-default" %>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<%= link_to "Cancel", admin_store_items_path, class: "btn btn-default" %>
