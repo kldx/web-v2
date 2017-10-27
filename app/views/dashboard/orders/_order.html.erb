@@ -3,7 +3,7 @@
   <td style="width:5%"><%= index+1 %></td>
   <td>
     <small class="text-primary">[Bill ID: <%= order.bill_id %>]</small> <%= order.item.name %><br>
-    <small>Shipping Status: <%= order.shipping.status.titleize.split(/ |\_|\-/).map(&:capitalize).join(" ") %></small>
+    <small>Shipping Status: <%= order.shipping.status.titleize.split(/ |\_|\-/).map(&:capitalize).join(" ") if order.shipping.present? %></small>
   </td>
   <td style="width:10%"><%= order.quantity %></td>
   <td style="width:10%"><%= number_to_currency(order.item.exact_price, unit: "RM") %></td>
