@@ -1,0 +1,15 @@
+<h3>Hello admin,</h3>
+<p>Someone is already make a payment at your website. Here is the detail for your reference:</p>
+<p>
+  <strong>Item Name:</strong> <%= @invoice.order.item.name %><br>
+  <strong>Quantity:</strong> <%= @invoice.order.quantity %><br>
+  <strong>Price:</strong> <%= number_to_currency(@invoice.order.price, unit: "RM") %><br>
+  <strong>Payment Status:</strong> SUCCESSFUL<br>
+  <strong>Invoice ID:</strong> <%= @invoice.invoice_id %>
+</p>
+<p>
+  <strong>Customer Name:</strong> <%= @invoice.order.user.profile.fullname %><br>
+  <strong>Customer Callsign:</strong> <%= @invoice.order.user.callsign.upcase %><br>
+  <strong>Phone Number:</strong> <%= @invoice.order.user.profile.phone_number %><br>
+  <strong>Shipping Address:</strong> <%= @invoice.order.user.profile.shipping_address %>
+</p>

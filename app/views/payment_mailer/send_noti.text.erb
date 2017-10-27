@@ -1,0 +1,12 @@
+Hello <%= @invoice.order.user.callsign.upcase %>,
+Thank you for your payment. Here is the detail for your reference:
+
+Item Name: <%= @invoice.order.item.name %>
+Quantity: <%= @invoice.order.quantity %>
+Price: <%= number_to_currency(@invoice.order.price, unit: "RM") %>
+Payment Status: SUCCESSFUL
+Invoice ID: <%= @invoice.invoice_id %>
+
+Customer Name: <%= @invoice.order.user.profile.fullname %>
+Phone Number: <%= @invoice.order.user.profile.phone_number %>
+Shipping Address: <%= @invoice.order.user.profile.shipping_address %>
