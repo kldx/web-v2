@@ -1,6 +1,11 @@
 <h1>Edit Shipping Details</h1>
 <hr>
 
+<div class="alert alert-danger" role="alert" id="a4" style="<%= 'display:none' if @shipping.preparation? || @shipping.ready_to_ship? && !@shipping.shipping_type.nil? || !@shipping.tracking_number.nil? %>">
+  <p>You already shipped the item <strong>BUT</strong> haven't fill yet the <strong>Courier Type</strong> and <strong>Tracking Number</strong>! Please to do so!</p>
+  <p>Customer can easily track the item based on the courier type and the tracking number. <strong>Thank you!</strong></p>
+</div>
+
 <%= form_with(model: @shipping, url: admin_store_order_shippings_path, local: true) do |form| %>
   <%= render partial: 'form', locals: {form: form, shipping: @shipping} %>
 <% end %>

@@ -1,46 +1,42 @@
-<%#= form_with(model: shipping, url: admin_store_order_shippings_path, local: true) do |form| %>
-  <% if shipping.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shipping.errors.count, "error") %> prohibited this shipping from being saved:</h2>
+<% if shipping.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(shipping.errors.count, "error") %> prohibited this shipping from being saved:</h2>
 
-      <ul>
-      <% shipping.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <ul>
+    <% shipping.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
-  <table class="table table-bordered table-responsive">
-    <tbody>
-      <tr>
-        <th>Order Bill ID:</th>
-        <td colspan="2"><%= "#"+@shipping.order.bill_id %></td>
-      </tr>
-      <tr>
-        <th>Current Status:</th>
-        <td id="shipping-state_<%= @shipping.id %>"><%= @shipping.status.titleize.split(/ |\_|\-/).map(&:capitalize).join(" ") %></td>
-        <td id="shipping-status_<%= @shipping.id %>">
-          <%= render partial: "shipping_status", locals: {shipping: @shipping} %>
-        </td>
-      </tr>
-      <%# if @shipping.shipped? %>
-      <tr>
-        <th>Shipping Courier:</th>
-        <td colspan="2"><%= form.select :shipping_type, Shipping.shipping_types.keys.map { |w| [w.humanize, w] }, { prompt: "-- Choose courier" }, { class: 'form-control' } %></td>
-      </tr>
-      <tr>
-        <th>Tracking Number:</th>
-        <td colspan="2"><%= form.text_field :tracking_number, id: :shipping_tracking_number, class: "form-control" %></td>
-      </tr>
-      <tr>
-        <th>Note:</th>
-        <td colspan="2"><%= form.text_area :note, id: :shipping_note, class: "form-control", rows: 5 %></td>
-      </tr>
-      <%# end %>
-    </tbody>
-  </table>
+<table class="table table-bordered table-responsive">
+  <tbody>
+    <tr>
+      <th>Order Bill ID:</th>
+      <td colspan="2"><%= "#"+@shipping.order.bill_id %></td>
+    </tr>
+    <tr>
+      <th>Current Status:</th>
+      <td id="shipping-state_<%= @shipping.id %>"><%= @shipping.status.titleize.split(/ |\_|\-/).map(&:capitalize).join(" ") %></td>
+      <td id="shipping-status_<%= @shipping.id %>">
+        <%= render partial: "shipping_status", locals: {shipping: @shipping} %>
+      </td>
+    </tr>
+    <tr id="a1" style="<%= 'display:none' if @shipping.preparation? || @shipping.ready_to_ship? %>">
+      <th>Shipping Courier:</th>
+      <td colspan="2"><%= form.select :shipping_type, Shipping.shipping_types.keys.map { |w| [w.humanize, w] }, { prompt: "-- Choose courier" }, { class: 'form-control' } %></td>
+    </tr>
+    <tr id="a2" style="<%= 'display:none' if @shipping.preparation? || @shipping.ready_to_ship? %>">
+      <th>Tracking Number:</th>
+      <td colspan="2"><%= form.text_field :tracking_number, id: :shipping_tracking_number, class: "form-control" %></td>
+    </tr>
+    <tr id="a3" style="<%= 'display:none' if @shipping.preparation? || @shipping.ready_to_ship? %>">
+      <th>Note:</th>
+      <td colspan="2"><%= form.text_area :note, id: :shipping_note, class: "form-control", rows: 5 %></td>
+    </tr>
+  </tbody>
+</table>
 
-  <%= form.submit class: "btn btn-primary" %>
-  <%= link_to "Cancel", admin_store_order_shippings_path, class: "btn btn-link" %>
-<%# end %>
+<%= form.submit class: "btn btn-primary" %>
+<%= link_to "Cancel", admin_store_order_shippings_path, class: "btn btn-link" %>
