@@ -13,6 +13,13 @@
             } %>
 <% end %>
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container" style="background-color:transparent;">
+    <h1 class="display-4"><strong><center>KLDX Shopping Centre</center></strong></h1>
+    <p class="lead"><center>Transforming shopping into an experience.</center></p>
+  </div>
+</div>
+
 <% @items.each_slice(4).with_index do |group,index| %>
 <div class="row" style="margin-bottom:20px;">
   <% group.each do |item| %>
