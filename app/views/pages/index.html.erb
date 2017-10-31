@@ -65,6 +65,16 @@
     </div>
   </div>
   <div class="col">
+    <div class="counter">
+      <div class="card border-light">
+        <div class="card-header text-white bg-primary mb-3">
+          Visitor Counter
+        </div>
+        <div class="card-body">
+          <h3><%= @visitor_counter %></h3>
+        </div>
+      </div>
+    </div>
     <div class="calendar_activity">
       <p class="lead">This <%= Time.now.strftime("%B") %> Activities</p>
       <ul class="list-group">

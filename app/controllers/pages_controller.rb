@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def index
     @articles = Article.approved.page params[:page]
     @banners = Banner.where sort: 0..2
+    @visitor_counter = Visit.count
   end
 
   def show
