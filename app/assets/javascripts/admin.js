@@ -20,4 +20,5 @@
 //= require ckeditor/init
 //= require rails_sortable
 //= require admin/style
+//= require ahoy
 //= require holder
