@@ -4,6 +4,7 @@
   <td><%= item.name %></td>
   <td style="width:15%"><%= number_to_currency(item.exact_price, unit: "RM") %></td>
   <td style="width:14%" id="item-status_<%= item.id %>"><span class="badge badge-secondary"><%= item.quantity %></span> <%= check_stock item %></td>
+  <td><%= link_to "Manage Coupon", admin_store_item_coupons_path(item), class: "btn btn-secondary btn-sm"  %></td>
   <td style="width:10%">
     <%= render partial: "item_stock", locals: {:item => item} %>
   </td>

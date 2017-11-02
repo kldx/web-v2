@@ -1,0 +1,15 @@
+<% index = coupon_counter + 0 %>
+<tr>
+  <td style="width:5%"><%= index+1 %></td>
+  <td style="width:25%"><%= coupon.code %></td>
+  <td style="width:15%"><%= coupon.valid_from %></td>
+  <td style="width:15%"><%= coupon.valid_until %></td>
+  <td style="width:20%"><%= coupon.redemption_limit %></td>
+  <td style="width:20%"><%= coupon.coupon_redemptions_count %></td>
+  <td>
+    <div class="btn-group btn-group-sm">
+      <%= link_to "Edit", edit_admin_store_item_coupon_path(@item,coupon), class: "btn btn-secondary" %>
+      <%= link_to "Show", admin_store_item_coupon_path(@item,coupon), class: "btn btn-primary" %>
+    </div>
+  </td>
+</tr>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
         member do
           patch :mark_out_of_stock
         end
+        resources :coupons, except: :destroy
       end
       resources :orders, except: [:new, :create, :edit, :update, :destroy] do
         member do

@@ -1,0 +1,59 @@
+<% if @coupon.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong><%= pluralize(@coupon.errors.count, "error") %> prohibited this user from being saved:</strong>
+  <ul>
+    <% @coupon.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+  <%= f.label :code %>
+  <%= f.text_field :code, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :description %>
+  <%= f.text_area :description, class: "form-control", rows: 3 %>
+</div>
+
+<div class="form-group">
+  <%= f.label :amount %>
+  <%= f.number_field :amount, class: "form-control" %>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :valid_from %>
+      <%= f.date_field :valid_from, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :valid_until %>
+      <%= f.date_field :valid_until, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :redemption_limit %>
+      <%= f.number_field :redemption_limit, class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <%= f.label :coupon_redemptions_count %>
+      <%= f.number_field :coupon_redemptions_count, class: "form-control" %>
+    </div>
+  </div>
+</div>
+
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<%= link_to "Cancel", admin_store_items_path, class: "btn btn-default" %>
