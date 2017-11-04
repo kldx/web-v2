@@ -112,6 +112,7 @@ GEM
       mime-types (>= 1.16)
     case_transform (0.2)
       activesupport
+    chartkick (2.2.5)
     chronic (0.10.2)
     ckeditor (4.2.4)
       cocaine
@@ -551,6 +552,7 @@ DEPENDENCIES
   capistrano-sidekiq
   carrierwave (~> 1.0)
   carrierwave_backgrounder!
+  chartkick
   ckeditor
   coffee-rails (~> 4.2)
   config

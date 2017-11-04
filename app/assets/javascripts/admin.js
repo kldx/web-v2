@@ -20,5 +20,8 @@
 //= require ckeditor/init
 //= require rails_sortable
 //= require admin/style
+//= require Chart.bundle
+//= require highcharts
+//= require chartkick
 //= require ahoy
 //= require holder
