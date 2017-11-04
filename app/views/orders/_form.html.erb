@@ -22,7 +22,7 @@
 
 <div class="form-group">
   <%= f.label :quantity %>
-  <%= f.number_field :quantity, class: "form-control", min: 1, max: @item.quantity %>
+  <%= f.number_field :quantity, class: "form-control", min: 1, max: @item.quantity, required: true %>
   <small class="form-text text-muted">Current quantity in stock is <%= @item.quantity %></small>
   <%= f.hidden_field :user_id, value: current_user.id %>
 </div>
