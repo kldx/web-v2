@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :items
   has_many :orders
   has_many :comments
+  has_many :coupon_redemptions
 
   before_create :build_default_profile
 

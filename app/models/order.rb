@@ -5,6 +5,7 @@ class Order < ApplicationRecord
   belongs_to :item
   has_one :invoice, dependent: :destroy
   has_one :shipping, dependent: :destroy
+  has_many :coupon_redemptions
 
   scope :sort, -> { order('orders.created_at DESC') }
 
