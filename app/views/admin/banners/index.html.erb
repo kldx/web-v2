@@ -14,7 +14,7 @@
     </tr>
   </thead>
   <tbody class="sortable">
-    <% sortable_fetch @banners do |banner,id_tag| %>
+    <% @banners.each_with_sortable_id do |banner,id_tag| %>
     <tr id="<%= id_tag %>">
       <td><%= banner.title %></td>
       <td><%= banner.user.callsign.upcase %></td>
