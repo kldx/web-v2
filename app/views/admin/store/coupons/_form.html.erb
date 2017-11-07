@@ -26,31 +26,22 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :valid_from %>
       <%= f.date_field :valid_from, class: "form-control" %>
     </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :valid_until %>
       <%= f.date_field :valid_until, class: "form-control" %>
     </div>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <div class="form-group">
       <%= f.label :redemption_limit %>
       <%= f.number_field :redemption_limit, class: "form-control" %>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="form-group">
-      <%= f.label :coupon_redemptions_count %>
-      <%= f.number_field :coupon_redemptions_count, class: "form-control" %>
     </div>
   </div>
 </div>
