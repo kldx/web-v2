@@ -5,15 +5,14 @@
 <% content_for :meta_tags do %>
   <%= render :partial => 'application/meta_tags',
              :locals => {
-               :type => "article",
+               :type => "website",
                :title => "KLDX | #{@article.title}",
                :url => request.url,
                :description => "#{truncate(strip_tags(@article.content), length: 100)}",
                :canonical => request.url,
                :og_title => "KLDX | #{@article.title}",
                :og_description => "#{truncate(strip_tags(@article.content), length: 100)}",
-               :og_image => "#{@article.default_picture_url(:header)}",
-               :article_author => "https://www.facebook.com/kldxteam"
+               :og_image => "#{@article.default_picture_url(:header)}"
             } %>
 <% end %>
 

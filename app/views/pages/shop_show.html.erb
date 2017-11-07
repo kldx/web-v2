@@ -5,15 +5,14 @@
 <% content_for :meta_tags do %>
   <%= render :partial => 'application/meta_tags',
              :locals => {
-               :type => "article",
+               :type => "website",
                :title => "KLDX | #{@item.name}",
                :url => request.url,
                :description => "View details on this item at our website now",
                :canonical => request.url,
                :og_title => "KLDX | #{@item.name}",
                :og_description => "View details on this item at our website now",
-               :og_image => "#{@item.default_picture_url(:big_thumb)}",
-               :article_author => "https://www.facebook.com/kldxteam"
+               :og_image => "#{@item.default_picture_url(:big_thumb)}"
             } %>
 <% end %>
 
