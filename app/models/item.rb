@@ -6,7 +6,6 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_many :orders
-  has_many :coupons
 
   scope :sort, -> { order('items.created_at DESC') }
   scope :featured, -> { where ('featured = TRUE')}

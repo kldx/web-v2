@@ -1,3 +1,0 @@
-<%= form_for @coupon, url: admin_store_item_coupons_path(@item), multipart: true, html: { class: "form-horizontal form-bordered", method: :post } do |f| %>
-  <%= render partial: 'form', locals: {f: f, post: @coupon} %>
-<% end %>
