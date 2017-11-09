@@ -6,6 +6,8 @@ class Article < ApplicationRecord
   acts_as_paranoid
   is_impressionable :counter_cache => true, :column_name => :page_view, :unique => true
 
+  validates_presence_of :title, :content, :default_picture
+
   belongs_to :user
   belongs_to :category
   has_many :comments, as: :commentable, dependent: :destroy
