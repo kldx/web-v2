@@ -3,6 +3,8 @@ class Category < ApplicationRecord
   friendly_id :name, use: [:slugged, :finders, :history]
   acts_as_paranoid
 
+  validates_presence_of :name
+
   has_many :articles
 
   default_scope -> { order('categories.name DESC') }
