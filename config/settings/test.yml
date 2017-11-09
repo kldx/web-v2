@@ -1,0 +1,3 @@
+s3:
+  bucket: web2-dev
+  region: ap-southeast-1
