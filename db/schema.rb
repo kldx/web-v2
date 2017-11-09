@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102094607) do
+ActiveRecord::Schema.define(version: 20171102071618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,17 +106,6 @@ ActiveRecord::Schema.define(version: 20171102094607) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "coupon_redemptions", force: :cascade do |t|
-    t.bigint "coupon_id"
-    t.bigint "user_id"
-    t.bigint "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["coupon_id"], name: "index_coupon_redemptions_on_coupon_id"
-    t.index ["order_id"], name: "index_coupon_redemptions_on_order_id"
-    t.index ["user_id"], name: "index_coupon_redemptions_on_user_id"
   end
 
   create_table "coupons", force: :cascade do |t|
@@ -305,9 +294,6 @@ ActiveRecord::Schema.define(version: 20171102094607) do
   add_foreign_key "articles", "users"
   add_foreign_key "banners", "users"
   add_foreign_key "comments", "users"
-  add_foreign_key "coupon_redemptions", "coupons"
-  add_foreign_key "coupon_redemptions", "orders"
-  add_foreign_key "coupon_redemptions", "users"
   add_foreign_key "coupons", "items"
   add_foreign_key "invoices", "orders"
   add_foreign_key "items", "users"
