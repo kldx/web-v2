@@ -35,11 +35,7 @@ class Item < ApplicationRecord
   end
 
   def exact_price
-    if sale_price.nil?
-      default_price
-    else
-      sale_price
-    end
+    sale.price.nil? ? default_price : sale_price
   end
 
   private
