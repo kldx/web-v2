@@ -13,4 +13,6 @@ $ rails s
 
 ```
 $ rake traceroute
+$ rubycritic
+$ brakeman
 ```
