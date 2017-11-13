@@ -8,3 +8,9 @@ $ redis-server
 $ bundle exec sidekiq
 $ rails s
 ```
+
+## Checking Performance
+
+```
+$ rake traceroute
+```
