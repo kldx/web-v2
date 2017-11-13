@@ -4,6 +4,8 @@ class Item < ApplicationRecord
   mount_uploader :default_picture, DefaultPictureShopUploader
   is_impressionable :counter_cache => true, :column_name => :page_view, :unique => true
 
+  validates_presence_of :name, :description, :default_picture
+
   belongs_to :user
   has_many :orders
 
