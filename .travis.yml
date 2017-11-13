@@ -9,5 +9,6 @@ rvm:
 services:
  - postgresql
 addons:
- code_climate:
-  repo_token:
+  postgresql: "9.4"
+  code_climate:
+    repo_token:
