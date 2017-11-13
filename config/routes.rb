@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :admin, path: '/admin' do
     mount Sidekiq::Web, at: '/sidekiq'
     get "/" => "dashboard#index"
-    resources :categories, except: [:edit, :update]
+    resources :categories, except: [:edit, :update, :show]
     resources :articles, except: :show do
       member do
         patch :published
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
           patch :mark_out_of_stock
         end
       end
-      resources :orders, except: [:new, :create, :edit, :update, :destroy] do
+      resources :orders, except: [:new, :create, :edit, :update, :destroy, :show] do
         member do
           get 'review'
         end
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard, path: '/dashboard' do
     get "/" => "dashboard#index"
-    resources :orders, except: [:new, :create, :edit, :update, :destroy] do
+    resources :orders, except: [:new, :create, :edit, :update, :destroy, :show] do
       member do
         get 'review'
         post 'callback' => 'orders#callback'

@@ -45,6 +45,7 @@ gem 'whenever', :require => false
 gem 'aasm'
 gem 'ahoy_matey'
 gem 'chartkick'
+gem 'traceroute'
 
 # gem for API development
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-10-stable'
