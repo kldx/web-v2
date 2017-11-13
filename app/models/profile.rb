@@ -2,11 +2,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   def full_address?
-    if no_address
-      "Please update your shipping address"
-    else
-      shipping_address
-    end
+    no_address? ? "Please update your shipping address" : shipping_address
   end
 
   def shipping_address

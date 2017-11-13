@@ -37,18 +37,10 @@ class Shipping < ApplicationRecord
   end
 
   def set_tracking_number
-    if self.tracking_number.nil?
-      "<small><i>Will update soon once your item move to Ship status</i></small>".html_safe
-    else
-      self.tracking_number
-    end
+    tracking_number.nil? ? "<small><i>Will update soon once your item move to Ship status</i></small>".html_safe : tracking_number
   end
 
   def set_note
-    if self.note.nil?
-      "N/A"
-    else
-      self.note
-    end
+    note.nil? ? "N/A" : note
   end
 end
