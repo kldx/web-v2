@@ -6,4 +6,8 @@ class Admin::Store::OrdersController < AdminController
   def review
     @order = Order.find params[:id]
   end
+
+  def show
+    #code
+  end
 end
