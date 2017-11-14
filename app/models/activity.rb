@@ -3,7 +3,7 @@ class Activity < ApplicationRecord
 
   belongs_to :user
 
-  validates_presence_of :default_picture
+  validates_presence_of :default_picture, :title, :description, :start_time, :end_time, :status
 
   default_scope -> { order('activities.start_time ASC') }
   scope :today, -> { where(start_time: DateTime.now.beginning_of_day..DateTime.now.end_of_day) }

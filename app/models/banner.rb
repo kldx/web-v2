@@ -6,6 +6,8 @@ class Banner < ApplicationRecord
   include RailsSortable::Model
   set_sortable :sort
 
+  validates_presence_of :title, :default_picture
+
   belongs_to :user
 
   enum status: [:pending, :approved, :rejected]
