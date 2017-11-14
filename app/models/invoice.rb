@@ -2,7 +2,7 @@ class Invoice < ApplicationRecord
   belongs_to :order
 
   after_create :create_invoice_id
-  after_update :send_noti, if: -> { state_changed? && state == "paid" && paid == true }
+  after_update :send_noti, if: -> { saved_change_to_state? && state == "paid" && paid == true }
 
   scope :paid, -> { where(state: "paid")   }
   scope :unpaid, -> { where(state: nil)   }
