@@ -8,5 +8,8 @@ FactoryBot.define do
     status 0
     featured false
     slug { Faker::Internet.slug }
+    after(:create) do |article|
+      FactoryBot.create(:comment, commentable: article)
+    end
   end
 end
