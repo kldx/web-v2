@@ -20,6 +20,7 @@
 .env
 .env.development
 /public/uploads/article/*
+/public/uploads/item/*
 
 config/settings.local.yml
 config/settings/*.local.yml
