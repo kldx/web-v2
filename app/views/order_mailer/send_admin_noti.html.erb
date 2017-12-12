@@ -1,17 +1,41 @@
-<h3>Hello admin,</h3>
-<p>Someone has placed an order at your website. Here is the detail for your reference:</p>
-<p>
-  <strong>Item Name:</strong> <%= @order.item.name %><br>
-  <strong>Quantity:</strong> <%= @order.quantity %><br>
-  <strong>Price:</strong> <%= number_to_currency(@order.price, unit: "RM") %><br>
-  <strong>Status:</strong> <%= @order.status %>
-</p>
-<p>
-  <strong>Customer Name:</strong> <%= @order.user.profile.fullname %><br>
-  <strong>Customer Callsign:</strong> <%= @order.user.callsign.upcase %><br>
-  <strong>Phone Number:</strong> <%= @order.user.profile.phone_number %><br>
-  <strong>Shipping Address:</strong> <%= @order.user.profile.shipping_address %>
-</p>
-<p>
-  Check the details <%= link_to "here", admin_store_order_url(@order), target: "_blank" %>
-</p>
+<tr>
+  <td class="wrapper" style="font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;">
+    <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
+      <tr>
+        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Hi admin,</p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Someone has placed an order at your website. Here is the detail for your reference:</p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Item Name:</strong> <%= @order.item.name %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Quantity:</strong> <%= @order.quantity %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Price:</strong> <%= number_to_currency(@order.price, unit: "RM") %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Status:</strong> <%= @order.status %></p>
+          <br>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Customer Name:</strong> <%= @order.user.profile.fullname %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Customer Callsign:</strong> <%= @order.user.callsign.upcase %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Phone Number:</strong> <%= @order.user.profile.phone_number %></p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;"><strong>Shipping Address:</strong> <%= @order.user.profile.shipping_address %></p>
+          <table border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
+            <tbody>
+              <tr>
+                <td align="left" style="font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;">
+                  <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
+                    <tbody>
+                      <tr>
+                        <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;">
+                          <%= link_to "Check Details", admin_store_order_url(@order), target: "_blank", style: "display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;" %>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">Best regards,</p>
+          <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;">System.</p>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
