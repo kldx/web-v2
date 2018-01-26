@@ -87,6 +87,7 @@ Rails.application.routes.draw do
   get 'activities' => 'pages#activities', as: 'activities'
   get 'crew' => 'pages#crew', as: 'crew'
   get 'about' => 'pages#about', as: 'about'
+  get 'gallery' => 'pages#gallery', as: 'gallery'
   # shop/store
   get 'shop' => 'pages#shop', as: 'shop'
   get 'shop/:id' => 'pages#shop_show', as: 'shop_show'

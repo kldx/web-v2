@@ -28,6 +28,8 @@ class PagesController < ApplicationController
 
   def about() end
 
+  def gallery() end
+
   def shop
     @items = Item.sort
   end
